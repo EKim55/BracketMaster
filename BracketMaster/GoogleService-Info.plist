@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>262430171659-vh2gsl8qk2gvv94e35taf29jg3b0k80p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.262430171659-vh2gsl8qk2gvv94e35taf29jg3b0k80p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAKw9QHn9IoL_v6nyvp0maXEL4AD9Gxh18</string>
+	<key>GCM_SENDER_ID</key>
+	<string>262430171659</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.rosehulman.kime2.BracketMaster</string>
+	<key>PROJECT_ID</key>
+	<string>kime2-chakrap-bracket-master</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kime2-chakrap-bracket-master.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:262430171659:ios:632a60389a140123</string>
+	<key>DATABASE_URL</key>
+	<string>https://kime2-chakrap-bracket-master.firebaseio.com</string>
+</dict>
+</plist>
