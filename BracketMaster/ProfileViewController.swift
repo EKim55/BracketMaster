@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -80,7 +80,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Fx2-IM-g0L"/>
                     <connections>
+                        <outlet property="nameLabel" destination="4P9-UE-SKq" id="jCb-ol-dTL"/>
                         <outlet property="signOutButton" destination="cnD-ZY-qL5" id="mPg-lJ-egS"/>
+                        <outlet property="usernameLabel" destination="x8f-cj-e1y" id="hi5-DL-NyS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLV-PC-csP" userLabel="First Responder" sceneMemberID="firstResponder"/>
