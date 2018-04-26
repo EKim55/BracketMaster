@@ -17,7 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="GEE-D9-tys">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="nWf-PZ-BBJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Competition" id="u2v-sx-f1a"/>
@@ -42,26 +42,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P9-UE-SKq">
-                                <rect key="frame" x="272" y="104" width="45" height="20"/>
+                                <rect key="frame" x="294" y="104" width="45" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8f-cj-e1y">
-                                <rect key="frame" x="255.33333333333337" y="157" width="79" height="21"/>
+                                <rect key="frame" x="278" y="157" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ibp-2v-Ces" firstAttribute="top" secondItem="Jjb-wN-cnQ" secondAttribute="top" constant="60" id="67R-dC-Rvw"/>
                             <constraint firstItem="Ibp-2v-Ces" firstAttribute="leading" secondItem="Jjb-wN-cnQ" secondAttribute="leading" constant="51" id="7Xu-in-PGD"/>
-                            <constraint firstItem="4P9-UE-SKq" firstAttribute="leading" secondItem="Ibp-2v-Ces" secondAttribute="trailing" constant="46" id="8MT-fg-JJR"/>
+                            <constraint firstItem="4P9-UE-SKq" firstAttribute="leading" secondItem="Ibp-2v-Ces" secondAttribute="trailing" constant="68" id="8MT-fg-JJR"/>
                             <constraint firstItem="x8f-cj-e1y" firstAttribute="centerY" secondItem="Ibp-2v-Ces" secondAttribute="centerY" id="97I-GA-xDT"/>
                             <constraint firstItem="4P9-UE-SKq" firstAttribute="top" secondItem="Jjb-wN-cnQ" secondAttribute="top" constant="84" id="OTD-T0-hxO"/>
-                            <constraint firstItem="x8f-cj-e1y" firstAttribute="centerX" secondItem="4P9-UE-SKq" secondAttribute="centerX" id="jBi-Ro-19s"/>
+                            <constraint firstItem="x8f-cj-e1y" firstAttribute="centerX" secondItem="4P9-UE-SKq" secondAttribute="centerX" constant="1" id="jBi-Ro-19s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jjb-wN-cnQ"/>
                     </view>
@@ -86,6 +86,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-fI-5cn">
                                 <rect key="frame" x="0.0" y="76" width="414" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BracketCell" id="LWh-K6-Yug">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -94,6 +95,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -156,7 +158,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ow3-D6-kf1"/>
                     </view>
                 </viewController>
