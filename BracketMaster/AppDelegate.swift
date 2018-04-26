@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Sign in")
         } else {
             showHomeViewController()
+            print("you are signed in")
         }
         return true
     }
@@ -37,11 +38,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         guard let auth = user.authentication else {return}
         let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
-        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        print("you are now signed in with Google: \(user.profile.email)")
+        handleLogin()
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+    }
+    
+    func handleLogin() {
+        showHomeViewController()
+    }
+    
+    @objc func handleLogout() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error on sign out: \(error.localizedDescription)")
+        }
+        showLoginViewController()
     }
     
     func showLoginViewController() {
