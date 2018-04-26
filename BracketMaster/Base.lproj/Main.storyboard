@@ -74,13 +74,14 @@
         <!--Home-->
         <scene sceneID="b0C-ux-7RI">
             <objects>
-                <viewController id="eXK-vW-DsR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eXK-vW-DsR" customClass="HomeViewController" customModule="BracketMaster" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rUX-Vc-zP4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-VV-hNi">
                                 <rect key="frame" x="0.0" y="20" width="414" height="56"/>
+                                <color key="barTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-fI-5cn">
@@ -100,7 +101,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dV9-fI-5cn" firstAttribute="bottom" secondItem="AtG-zc-xmq" secondAttribute="bottom" id="2vU-VB-wJW"/>
                             <constraint firstItem="dV9-fI-5cn" firstAttribute="leading" secondItem="AtG-zc-xmq" secondAttribute="leading" id="ELm-vh-wkZ"/>
@@ -137,34 +138,45 @@
             </objects>
             <point key="canvasLocation" x="825" y="826"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="bLg-1g-C2I">
             <objects>
-                <viewController id="EWh-7o-eLZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EWh-7o-eLZ" customClass="LoginViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ku-ju-w0l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Master" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm5-QA-csv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bracket Master" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm5-QA-csv">
                                 <rect key="frame" x="149" y="112" width="116" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAe-Ps-ZBX">
-                                <rect key="frame" x="129" y="338" width="156" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAe-Ps-ZBX" customClass="GIDSignInButton">
+                                <rect key="frame" x="149" y="363" width="116" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wGz-bB-0hV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wm5-QA-csv" firstAttribute="top" secondItem="Ow3-D6-kf1" secondAttribute="top" constant="92" id="DxX-78-4Qf"/>
+                            <constraint firstItem="Wm5-QA-csv" firstAttribute="centerX" secondItem="Ow3-D6-kf1" secondAttribute="centerX" id="Hzq-DK-y2b"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="width" secondItem="Wm5-QA-csv" secondAttribute="width" id="TEO-5L-at3"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="centerY" secondItem="Ow3-D6-kf1" secondAttribute="centerY" id="gar-rl-KnC"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="centerX" secondItem="Ow3-D6-kf1" secondAttribute="centerX" id="rFy-gY-SDW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ow3-D6-kf1"/>
                     </view>
+                    <connections>
+                        <outlet property="googleLoginButton" destination="gAe-Ps-ZBX" id="kne-bS-7bf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bt8-qD-4hA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="-2"/>
+            <point key="canvasLocation" x="824.63768115942037" y="-2.4456521739130435"/>
         </scene>
     </scenes>
 </document>

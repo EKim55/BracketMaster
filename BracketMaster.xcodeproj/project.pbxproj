@@ -10,10 +10,10 @@
 		0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */; };
 		0AFBD8512090F1B6009F1C93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD8502090F1B6009F1C93 /* ViewController.swift */; };
 		0AFBD8542090F1B6009F1C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8522090F1B6009F1C93 /* Main.storyboard */; };
-		0AFBD8572090F1B6009F1C93 /* BracketMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD8552090F1B6009F1C93 /* BracketMaster.xcdatamodeld */; };
 		0AFBD8592090F1B7009F1C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8582090F1B7009F1C93 /* Assets.xcassets */; };
 		0AFBD85C2090F1B7009F1C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD85A2090F1B7009F1C93 /* LaunchScreen.storyboard */; };
 		0AFBD864209145DA009F1C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */; };
+		0AFBD86620919A6D009F1C93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD86520919A6D009F1C93 /* HomeViewController.swift */; };
 		897A570020914E2B00628CEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A56FF20914E2B00628CEF /* LoginViewController.swift */; };
 		F9F949BECA3B0530EEFEA7CF /* Pods_BracketMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD647D2D3507295FE367230 /* Pods_BracketMaster.framework */; };
 /* End PBXBuildFile section */
@@ -24,11 +24,11 @@
 		0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AFBD8502090F1B6009F1C93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AFBD8532090F1B6009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0AFBD8562090F1B6009F1C93 /* BracketMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BracketMaster.xcdatamodel; sourceTree = "<group>"; };
 		0AFBD8582090F1B7009F1C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AFBD85B2090F1B7009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFBD85D2090F1B7009F1C93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0AFBD86520919A6D009F1C93 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4BD994DBA80EAA5BE2D3023D /* Pods-BracketMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BracketMaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BracketMaster/Pods-BracketMaster.debug.xcconfig"; sourceTree = "<group>"; };
 		897A56FF20914E2B00628CEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A85C0FF6EF11BF86D6D02E29 /* Pods-BracketMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BracketMaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-BracketMaster/Pods-BracketMaster.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85A2090F1B7009F1C93 /* LaunchScreen.storyboard */,
 				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
-				0AFBD8552090F1B6009F1C93 /* BracketMaster.xcdatamodeld */,
 				897A56FF20914E2B00628CEF /* LoginViewController.swift */,
+				0AFBD86520919A6D009F1C93 /* HomeViewController.swift */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";
@@ -251,8 +251,8 @@
 			files = (
 				897A570020914E2B00628CEF /* LoginViewController.swift in Sources */,
 				0AFBD8512090F1B6009F1C93 /* ViewController.swift in Sources */,
-				0AFBD8572090F1B6009F1C93 /* BracketMaster.xcdatamodeld in Sources */,
 				0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */,
+				0AFBD86620919A6D009F1C93 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,19 +450,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0AFBD8552090F1B6009F1C93 /* BracketMaster.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0AFBD8562090F1B6009F1C93 /* BracketMaster.xcdatamodel */,
-			);
-			currentVersion = 0AFBD8562090F1B6009F1C93 /* BracketMaster.xcdatamodel */;
-			path = BracketMaster.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0AFBD8432090F1B6009F1C93 /* Project object */;
 }
