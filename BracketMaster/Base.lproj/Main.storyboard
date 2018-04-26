@@ -138,13 +138,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="S3d-gk-13E">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="J2M-lB-nt8" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="J2M-lB-nt8" customClass="TabBarController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r70-t4-RwN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="r70-t4-RwN" id="ETX-cr-6qo"/>
                         <segue destination="eXK-vW-DsR" kind="relationship" relationship="viewControllers" id="OgY-UN-Wqo"/>
                         <segue destination="Zcj-zf-yvv" kind="relationship" relationship="viewControllers" id="8AC-xV-NGv"/>
                         <segue destination="nVP-2h-A3G" kind="relationship" relationship="viewControllers" id="8TD-Zn-TvG"/>
