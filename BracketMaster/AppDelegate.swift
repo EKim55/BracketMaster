@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             showLoginViewController();
             print("Sign in")
         } else {
-            showHomeViewController()
+            showTabBarController();
             print("you are signed in")
         }
         return true
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func handleLogin() {
-        showHomeViewController()
+        showTabBarController()
     }
     
     @objc func handleLogout() {
@@ -69,9 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
     }
     
-    func showHomeViewController() {
+    func showTabBarController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
     }
 
 }
