@@ -29,7 +29,7 @@
         <!--Profile-->
         <scene sceneID="9aI-7K-oUy">
             <objects>
-                <viewController id="nVP-2h-A3G" sceneMemberID="viewController">
+                <viewController id="nVP-2h-A3G" customClass="ProfileViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pi2-HW-vex">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="DAO-pc-3lc">
-                                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="cnD-ZY-qL5"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="cnD-ZY-qL5">
+                                            <connections>
+                                                <action selector="pressedSignOut:" destination="nVP-2h-A3G" id="ah9-8v-Iua"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -75,6 +79,9 @@
                         <viewLayoutGuide key="safeArea" id="Jjb-wN-cnQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Fx2-IM-g0L"/>
+                    <connections>
+                        <outlet property="signOutButton" destination="cnD-ZY-qL5" id="mPg-lJ-egS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLV-PC-csP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
