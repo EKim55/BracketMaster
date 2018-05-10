@@ -14,7 +14,7 @@ class AddCompetitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = ""
+        label.text = "Is this a "
     }
 
     // MARK: - Navigation
