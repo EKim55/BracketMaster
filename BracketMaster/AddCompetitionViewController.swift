@@ -25,17 +25,21 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
         pickerView.dataSource = self
         
         label.text = "Is this a "
-        label.numberOfLines = 3
         label.sizeToFit()
         pickerView.isHidden = false
+        pickerView.isOpaque = false
         textField.isHidden = true
         
-        self.navigationItem.leftBarButtonItem = navigationItem.backBarButtonItem
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneAction))
+        navigationItem.title = "Add New Competition"
+        navigationItem.leftBarButtonItem = navigationItem.backBarButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneAction))
     }
     
     @objc func doneAction() {
-        
+        if textField.text == "" {
+            let alertController = UIAlertController(title: "Please input a name for your competition", message: nil, preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -61,6 +65,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             state = true
             label.text = "How many people will participate in this \(competitionTypes[row])?"
             label.sizeToFit()
+            pickerView.reloadAllComponents()
         } else {
             state = false
             label.text = "What would you like to call this tournament?"
