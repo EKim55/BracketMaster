@@ -40,7 +40,7 @@
                                     <action selector="pressedProfileButton:" destination="nVP-2h-A3G" eventType="touchUpInside" id="Hwb-hS-Hoc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ibp-2v-Ces">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle-user-7" translatesAutoresizingMaskIntoConstraints="NO" id="Ibp-2v-Ces">
                                 <rect key="frame" x="51" y="80" width="175" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="RtJ-5j-SP2"/>
@@ -59,14 +59,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ste-Xt-J5C">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ste-Xt-J5C">
                                 <rect key="frame" x="269" y="93" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhZ-8S-TY6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhZ-8S-TY6">
                                 <rect key="frame" x="269" y="152" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
@@ -98,7 +98,9 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="Fx2-IM-g0L"/>
                     <connections>
                         <outlet property="imageView" destination="Ibp-2v-Ces" id="jrc-p0-6Za"/>
+                        <outlet property="nameTextField" destination="Ste-Xt-J5C" id="8iv-1c-iFR"/>
                         <outlet property="signOutButton" destination="cnD-ZY-qL5" id="mPg-lJ-egS"/>
+                        <outlet property="usernameTextField" destination="nhZ-8S-TY6" id="oop-sU-vyM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLV-PC-csP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,4 +273,7 @@
             <point key="canvasLocation" x="824.63768115942037" y="-2.4456521739130435"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle-user-7" width="30" height="30"/>
+    </resources>
 </document>

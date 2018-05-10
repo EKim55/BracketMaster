@@ -11,9 +11,9 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var profileStorageRef: StorageReference!
     var profileDocRef: DocumentReference!
@@ -35,7 +35,6 @@ class ProfileViewController: UIViewController {
                 print("Error getting the Firestore document \(error.localizedDescription)")
             }
             if let url = snapshot?.get("url") as? String {
-                print("Loading image from url")
                 if let imgURL = URL(string: url) {
                     DispatchQueue.global().async {
                         do {
