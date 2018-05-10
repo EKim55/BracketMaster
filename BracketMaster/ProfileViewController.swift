@@ -19,21 +19,34 @@ class ProfileViewController: UIViewController {
     var profileDocRef: DocumentReference!
     var profileListener: ListenerRegistration!
     var uid: String!
+    var url: String!
+    var name: String!
+    var username: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
         profileStorageRef = Storage.storage().reference(withPath: uid)
         profileDocRef = Firestore.firestore().collection("profile").document(uid)
-        print("\(uid)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileListener = profileDocRef.addSnapshotListener({ (snapshot, error) in
+            if (self.name == nil) {
+                self.name = "name"
+            }
+            if (self.username == nil) {
+                self.username = "username"
+            }
+            if (self.url == nil) {
+                self.url = "http://arrkenterprises.com/wp-content/uploads/2015/02/empty-profile-pic.png"
+            }
             if let error = error {
                 print("Error getting the Firestore document \(error.localizedDescription)")
             }
+            self.nameTextField.text = snapshot?.get("name") as? String
+            self.usernameTextField.text = snapshot?.get("username") as? String
             if let url = snapshot?.get("url") as? String {
                 if let imgURL = URL(string: url) {
                     DispatchQueue.global().async {
@@ -47,8 +60,18 @@ class ProfileViewController: UIViewController {
                         }
                     }
                 }
+                self.url = url
             }
+            self.nameTextField.addTarget(self, action: "changeName:", for: .editingDidEnd)
+            self.name = self.nameTextField.text
+            self.username = self.usernameTextField.text
+            print("\(self.data)")
+            self.profileDocRef.setData(self.data)
         })
+    }
+    
+    func changeName() {
+        
     }
     
     @IBAction func pressedSignOut(_ sender: Any) {
@@ -77,10 +100,17 @@ class ProfileViewController: UIViewController {
                     print("Error getting the download url. \(error.localizedDescription)")
                 }
                 if let url = url {
-                    self.profileDocRef.setData(["url" : url.absoluteString])
+                    self.url = url.absoluteString
+                    self.name = self.nameTextField.text
+                    self.username = self.usernameTextField.text
+                    self.profileDocRef.setData(self.data)
                 }
             })
         }
+    }
+    
+    var data: [String: Any] {
+        return ["url": self.url, "name": self.name, "username": self.username]
     }
 }
 
