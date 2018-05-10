@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */; };
-		0AFBD8512090F1B6009F1C93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD8502090F1B6009F1C93 /* ViewController.swift */; };
 		0AFBD8542090F1B6009F1C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8522090F1B6009F1C93 /* Main.storyboard */; };
 		0AFBD8592090F1B7009F1C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8582090F1B7009F1C93 /* Assets.xcassets */; };
 		0AFBD85C2090F1B7009F1C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD85A2090F1B7009F1C93 /* LaunchScreen.storyboard */; };
@@ -25,7 +24,6 @@
 		0AD647D2D3507295FE367230 /* Pods_BracketMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BracketMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFBD84B2090F1B6009F1C93 /* BracketMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BracketMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AFBD8502090F1B6009F1C93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AFBD8532090F1B6009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AFBD8582090F1B7009F1C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AFBD85B2090F1B7009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,18 +71,17 @@
 		0AFBD84D2090F1B6009F1C93 /* BracketMaster */ = {
 			isa = PBXGroup;
 			children = (
-				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
 				0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */,
-				0AFBD8502090F1B6009F1C93 /* ViewController.swift */,
 				0AFBD8522090F1B6009F1C93 /* Main.storyboard */,
-				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85A2090F1B7009F1C93 /* LaunchScreen.storyboard */,
-				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
 				897A56FF20914E2B00628CEF /* LoginViewController.swift */,
 				0AFBD86520919A6D009F1C93 /* HomeTableViewController.swift */,
 				897A57012091A42D00628CEF /* ProfileViewController.swift */,
 				89E5A74A2091AD1D002BFF4E /* TabBarController.swift */,
 				89582E452098BD58007EBEF8 /* Competition.swift */,
+				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
+				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
+				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 			files = (
 				89582E462098BD58007EBEF8 /* Competition.swift in Sources */,
 				897A570020914E2B00628CEF /* LoginViewController.swift in Sources */,
-				0AFBD8512090F1B6009F1C93 /* ViewController.swift in Sources */,
 				897A57022091A42D00628CEF /* ProfileViewController.swift in Sources */,
 				89E5A74B2091AD1D002BFF4E /* TabBarController.swift in Sources */,
 				0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */,

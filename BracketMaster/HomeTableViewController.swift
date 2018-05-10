@@ -20,6 +20,12 @@ class HomeTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Your Competitions"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(showAddDialog))
+    }
+    
+    @objc func showAddDialog() {
+        
     }
     
     // MARK: - Navigation
