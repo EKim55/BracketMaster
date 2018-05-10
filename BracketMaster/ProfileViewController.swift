@@ -11,9 +11,9 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var profileStorageRef: StorageReference!
     var profileDocRef: DocumentReference!
