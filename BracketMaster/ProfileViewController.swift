@@ -35,7 +35,6 @@ class ProfileViewController: UIViewController {
                 print("Error getting the Firestore document \(error.localizedDescription)")
             }
             if let url = snapshot?.get("url") as? String {
-                print("Loading image from url")
                 if let imgURL = URL(string: url) {
                     DispatchQueue.global().async {
                         do {
