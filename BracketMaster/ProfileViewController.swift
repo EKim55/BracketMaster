@@ -61,17 +61,17 @@ class ProfileViewController: UIViewController {
                     }
                 }
                 self.url = url
-            }
-            self.name = self.nameTextField.text
-            self.username = self.usernameTextField.text
-            print("\(self.data)")
-            self.profileDocRef.setData(self.data)
-        })
+            }        })
     }
     @IBAction func nameChange(_ sender: Any) {
+        self.name = self.nameTextField.text
+        self.profileDocRef.setData(self.data)
     }
     
     @IBAction func usernameChange(_ sender: Any) {
+        self.username = self.usernameTextField.text
+        self.profileDocRef.setData(self.data)
+        
     }
     @IBAction func pressedSignOut(_ sender: Any) {
         appDelegate.handleLogout()
