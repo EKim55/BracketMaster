@@ -13,14 +13,17 @@ class Competition: NSObject {
     var id: String?
     var created: Date!
     var isLeague: Bool
-    var participants: [String]
+    var participants: [String]?
+    var numParticipants: Int!
     
     let createdKey = "created"
     let isLeagueKey = "isLeague"
     let participantsKey = "participants"
+    let numParticipantsKey = "numParticipants"
     
-    init(isLeague: Bool, people: [String]) {
+    init(isLeague: Bool, people: [String], numberOfParticipants: Int) {
         self.isLeague = isLeague
+        self.numParticipants = numberOfParticipants
         if !isLeague {
             self.participants = people
         } else {
@@ -32,7 +35,8 @@ class Competition: NSObject {
         self.id = documentSnapshot.documentID
         let data = documentSnapshot.data()!
         self.isLeague = data[isLeagueKey] as! Bool
-        self.participants = data[participantsKey] as! [String]
+        self.numParticipants = data[numParticipantsKey] as! Int
+        self.participants = data[participantsKey] as? [String]
         if data[createdKey] != nil {
             self.created = data[createdKey] as! Date?
         }
@@ -41,6 +45,7 @@ class Competition: NSObject {
     var data: [String: Any?] {
         return [isLeagueKey: self.isLeague,
                 createdKey: self.created,
+                numParticipantsKey: self.numParticipants,
                 participantsKey: self.participants]
     }
 }

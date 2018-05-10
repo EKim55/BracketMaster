@@ -8,13 +8,66 @@
 
 import UIKit
 
-class AddCompetitionViewController: UIViewController {
+class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var textField: UITextField!
+    
+    let competitionTypes = ["Round Robin", "League"]
+    let numberOfParticipants = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    
+    var state = false //false if selecting type of competition, true if selecting number of players
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         label.text = "Is this a "
+        label.numberOfLines = 3
+        label.sizeToFit()
+        pickerView.isHidden = false
+        textField.isHidden = true
+        
+        self.navigationItem.leftBarButtonItem = navigationItem.backBarButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneAction))
+    }
+    
+    @objc func doneAction() {
+        
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if !state {
+            return competitionTypes.count
+        }
+        return numberOfParticipants.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if !state {
+            return competitionTypes[row]
+        }
+        return numberOfParticipants[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if !state {
+            state = true
+            label.text = "How many people will participate in this \(competitionTypes[row])?"
+            label.sizeToFit()
+        } else {
+            state = false
+            label.text = "What would you like to call this tournament?"
+            pickerView.isHidden = true
+            textField.isHidden = false
+            
+        }
     }
 
     // MARK: - Navigation
