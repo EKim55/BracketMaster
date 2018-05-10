@@ -13,6 +13,8 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     let competitionTypes = ["Round Robin", "League"]
     let numberOfParticipants = ["1", "2", "3", "4", "5", "6", "7", "8"]
@@ -40,6 +42,10 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             let alertController = UIAlertController(title: "Please input a name for your competition", message: nil, preferredStyle: .alert)
             present(alertController, animated: true, completion: nil)
         }
+    }
+    @IBAction func pressedDone(_ sender: Any) {
+    }
+    @IBAction func pressedBack(_ sender: Any) {
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
