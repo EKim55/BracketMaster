@@ -16,36 +16,37 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
-    let competitionTypes = ["Round Robin", "League"]
-    let numberOfParticipants = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    let doneSegueIdentifier = "donePopoverSegue"
     
-    var state = false //false if selecting type of competition, true if selecting number of players
+    let numberOfParticipants = ["1", "2", "3", "4", "5", "6", "7", "8"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        label.text = "Is this a "
+        label.text = "How many players are part of this league?"
         label.sizeToFit()
         pickerView.isHidden = false
-        pickerView.isOpaque = false
         textField.isHidden = true
-        
-        navigationItem.title = "Add New Competition"
-        navigationItem.leftBarButtonItem = navigationItem.backBarButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneAction))
+        doneButton.isHidden = true
+        textField.text = ""
     }
     
-    @objc func doneAction() {
+    @IBAction func pressedDone(_ sender: Any) {
         if textField.text == "" {
-            let alertController = UIAlertController(title: "Please input a name for your competition", message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Please input a name for your league.", message: nil, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
+        } else {
+            //pass information to previous VC
         }
     }
-    @IBAction func pressedDone(_ sender: Any) {
-    }
+    
     @IBAction func pressedBack(_ sender: Any) {
+        textField.text = " "
+        pressedDone(Any.self)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -53,39 +54,27 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if !state {
-            return competitionTypes.count
-        }
         return numberOfParticipants.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if !state {
-            return competitionTypes[row]
-        }
         return numberOfParticipants[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if !state {
-            state = true
-            label.text = "How many people will participate in this \(competitionTypes[row])?"
-            label.sizeToFit()
-            pickerView.reloadAllComponents()
-        } else {
-            state = false
-            label.text = "What would you like to call this tournament?"
-            pickerView.isHidden = true
-            textField.isHidden = false
-            
-        }
+        label.text = "What would you like to call this league?"
+        pickerView.isHidden = true
+        textField.isHidden = false
+        textField.backgroundColor = UIColor(ciColor: CIColor.white)
+        doneButton.isHidden = false
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if textField.text == "" {
+            pressedDone((Any).self)
+        }
     }
 }

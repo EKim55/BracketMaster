@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class HomeTableViewController: UIViewController {
+class HomeTableViewController: UITableViewController {
     
     var competitionsRef: CollectionReference!
     var competitionsListener: ListenerRegistration!
-    
+        
     let bracketCellIdentifier = "BracketCell"
     let noCompetitionsCellIdentifier = "NoCompetitionsCell"
     var competitions = [Competition]()
@@ -22,6 +22,7 @@ class HomeTableViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Your Competitions"
     }
+    
     
     // MARK: - Navigation
 
