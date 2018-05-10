@@ -26,7 +26,7 @@ class Competition: NSObject {
         let data = documentSnapshot.data()!
         self.isLeague = data[isLeagueKey] as! Bool
         if data[createdKey] != nil {
-            self.created = data[createdKey] as Date!
+            self.created = data[createdKey] as! Date!
         }
     }
     
