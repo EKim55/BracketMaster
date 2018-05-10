@@ -61,22 +61,18 @@ class ProfileViewController: UIViewController {
                     }
                 }
                 self.url = url
-            }
-            self.nameTextField.addTarget(self, action: "changeName:", for: .editingDidEnd)
-            self.name = self.nameTextField.text
-            self.username = self.usernameTextField.text
-            print("\(self.data)")
-            self.profileDocRef.setData(self.data)
-        })
+            }        })
+    }
+    @IBAction func nameChange(_ sender: Any) {
+        self.name = self.nameTextField.text
+        self.profileDocRef.setData(self.data)
     }
     
-    @IBAction func changeName(_ sender: Any) {
-    }
-    @IBOutlet weak var changeUsername: UITextField!
-    func changeName() {
+    @IBAction func usernameChange(_ sender: Any) {
+        self.username = self.usernameTextField.text
+        self.profileDocRef.setData(self.data)
         
     }
-    
     @IBAction func pressedSignOut(_ sender: Any) {
         appDelegate.handleLogout()
     }
