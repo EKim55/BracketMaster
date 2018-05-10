@@ -65,6 +65,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changeName:" destination="nVP-2h-A3G" eventType="editingDidEnd" id="AgA-OE-pbs"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhZ-8S-TY6">
                                 <rect key="frame" x="269" y="152" width="97" height="30"/>
@@ -97,6 +100,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Fx2-IM-g0L"/>
                     <connections>
+                        <outlet property="changeUsername" destination="nhZ-8S-TY6" id="hwW-yK-DxS"/>
                         <outlet property="imageView" destination="Ibp-2v-Ces" id="jrc-p0-6Za"/>
                         <outlet property="nameTextField" destination="Ste-Xt-J5C" id="8iv-1c-iFR"/>
                         <outlet property="signOutButton" destination="cnD-ZY-qL5" id="mPg-lJ-egS"/>

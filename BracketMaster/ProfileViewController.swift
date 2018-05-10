@@ -70,6 +70,9 @@ class ProfileViewController: UIViewController {
         })
     }
     
+    @IBAction func changeName(_ sender: Any) {
+    }
+    @IBOutlet weak var changeUsername: UITextField!
     func changeName() {
         
     }
