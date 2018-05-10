@@ -15,15 +15,18 @@ class Competition: NSObject {
     var isLeague: Bool
     var participants: [String]?
     var numParticipants: Int!
+    var name: String!
     
     let createdKey = "created"
     let isLeagueKey = "isLeague"
     let participantsKey = "participants"
     let numParticipantsKey = "numParticipants"
+    let nameKey = "name"
     
-    init(isLeague: Bool, people: [String], numberOfParticipants: Int) {
+    init(isLeague: Bool, people: [String], numberOfParticipants: Int, competitionName: String) {
         self.isLeague = isLeague
         self.numParticipants = numberOfParticipants
+        self.name = competitionName
         if !isLeague {
             self.participants = people
         } else {
@@ -37,6 +40,7 @@ class Competition: NSObject {
         self.isLeague = data[isLeagueKey] as! Bool
         self.numParticipants = data[numParticipantsKey] as! Int
         self.participants = data[participantsKey] as? [String]
+        self.name = data[name] as! String
         if data[createdKey] != nil {
             self.created = data[createdKey] as! Date?
         }
@@ -46,6 +50,7 @@ class Competition: NSObject {
         return [isLeagueKey: self.isLeague,
                 createdKey: self.created,
                 numParticipantsKey: self.numParticipants,
-                participantsKey: self.participants]
+                participantsKey: self.participants,
+                nameKey: self.name]
     }
 }

@@ -32,6 +32,11 @@
                                     <rect key="frame" x="361" y="5" width="34" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <state key="normal" title="Add"/>
+                                    <connections>
+                                        <segue destination="Qvq-oF-XJN" kind="popoverPresentation" popoverAnchorView="F8N-6x-djK" id="x13-iZ-KL7">
+                                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                        </segue>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +49,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="sgt-bJ-LmI" style="IBUITableViewCellStyleDefault" id="fc9-fz-yCK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompetitionCell" textLabel="sgt-bJ-LmI" style="IBUITableViewCellStyleDefault" id="fc9-fz-yCK">
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fc9-fz-yCK" id="wdb-Pe-J7U">
@@ -61,7 +66,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="NgR-WP-IuD" style="IBUITableViewCellStyleDefault" id="CwP-Vo-EOz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoCompetitionsCell" textLabel="NgR-WP-IuD" style="IBUITableViewCellStyleDefault" id="CwP-Vo-EOz">
                                 <rect key="frame" x="0.0" y="116" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CwP-Vo-EOz" id="TR0-w0-V37">
@@ -233,7 +238,7 @@
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="pressedDone:" destination="Qvq-oF-XJN" eventType="touchUpInside" id="U9e-4m-Af7"/>
-                                            <segue destination="7fd-4G-mZQ" kind="show" id="NEo-fi-VkT"/>
+                                            <segue destination="7fd-4G-mZQ" kind="show" id="uds-LH-1up"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78L-sn-X6X">
@@ -354,6 +359,7 @@
         <image name="circle-user-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NEo-fi-VkT"/>
+        <segue reference="x13-iZ-KL7"/>
+        <segue reference="uds-LH-1up"/>
     </inferredMetricsTieBreakers>
 </document>
