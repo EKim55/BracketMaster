@@ -13,6 +13,7 @@
 		0AFBD85C2090F1B7009F1C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD85A2090F1B7009F1C93 /* LaunchScreen.storyboard */; };
 		0AFBD864209145DA009F1C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */; };
 		0AFBD86620919A6D009F1C93 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD86520919A6D009F1C93 /* HomeTableViewController.swift */; };
+		891FE66220A415F100FC8027 /* AddCompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FE66120A415F100FC8027 /* AddCompetitionViewController.swift */; };
 		89582E462098BD58007EBEF8 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89582E452098BD58007EBEF8 /* Competition.swift */; };
 		897A570020914E2B00628CEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A56FF20914E2B00628CEF /* LoginViewController.swift */; };
 		897A57022091A42D00628CEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A57012091A42D00628CEF /* ProfileViewController.swift */; };
@@ -31,6 +32,7 @@
 		0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AFBD86520919A6D009F1C93 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		4BD994DBA80EAA5BE2D3023D /* Pods-BracketMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BracketMaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BracketMaster/Pods-BracketMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		891FE66120A415F100FC8027 /* AddCompetitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionViewController.swift; sourceTree = "<group>"; };
 		89582E452098BD58007EBEF8 /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		897A56FF20914E2B00628CEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		897A57012091A42D00628CEF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				897A57012091A42D00628CEF /* ProfileViewController.swift */,
 				89E5A74A2091AD1D002BFF4E /* TabBarController.swift */,
 				89582E452098BD58007EBEF8 /* Competition.swift */,
+				891FE66120A415F100FC8027 /* AddCompetitionViewController.swift */,
 				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
 				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
@@ -257,6 +260,7 @@
 			files = (
 				89582E462098BD58007EBEF8 /* Competition.swift in Sources */,
 				897A570020914E2B00628CEF /* LoginViewController.swift in Sources */,
+				891FE66220A415F100FC8027 /* AddCompetitionViewController.swift in Sources */,
 				897A57022091A42D00628CEF /* ProfileViewController.swift in Sources */,
 				89E5A74B2091AD1D002BFF4E /* TabBarController.swift in Sources */,
 				0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */,
