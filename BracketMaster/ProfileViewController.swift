@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    var photosStorageRef: StorageReference!
+    var photosCollectionRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
