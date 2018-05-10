@@ -66,7 +66,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changeName:" destination="nVP-2h-A3G" eventType="editingDidEnd" id="AgA-OE-pbs"/>
                                     <action selector="nameChange:" destination="nVP-2h-A3G" eventType="editingDidEnd" id="wZr-Bd-52j"/>
                                 </connections>
                             </textField>
@@ -104,7 +103,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Fx2-IM-g0L"/>
                     <connections>
-                        <outlet property="changeUsername" destination="nhZ-8S-TY6" id="hwW-yK-DxS"/>
                         <outlet property="imageView" destination="Ibp-2v-Ces" id="jrc-p0-6Za"/>
                         <outlet property="nameTextField" destination="Ste-Xt-J5C" id="8iv-1c-iFR"/>
                         <outlet property="signOutButton" destination="cnD-ZY-qL5" id="mPg-lJ-egS"/>
