@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-VV-hNi">
-                                <rect key="frame" x="0.0" y="20" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="362" height="56"/>
                                 <color key="barTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -156,12 +156,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puy-Xm-ifQ">
+                                <rect key="frame" x="379" y="33" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="puy-Xm-ifQ" firstAttribute="top" secondItem="AtG-zc-xmq" secondAttribute="top" constant="13" id="16o-pP-if1"/>
                             <constraint firstItem="dV9-fI-5cn" firstAttribute="bottom" secondItem="AtG-zc-xmq" secondAttribute="bottom" id="2vU-VB-wJW"/>
                             <constraint firstItem="dV9-fI-5cn" firstAttribute="leading" secondItem="AtG-zc-xmq" secondAttribute="leading" id="ELm-vh-wkZ"/>
-                            <constraint firstItem="1Gr-VV-hNi" firstAttribute="trailing" secondItem="AtG-zc-xmq" secondAttribute="trailing" id="Pya-V6-FAF"/>
+                            <constraint firstItem="puy-Xm-ifQ" firstAttribute="leading" secondItem="1Gr-VV-hNi" secondAttribute="trailing" constant="17" id="G4N-pR-NfT"/>
+                            <constraint firstItem="dV9-fI-5cn" firstAttribute="top" secondItem="puy-Xm-ifQ" secondAttribute="bottom" constant="13" id="HhQ-SN-nQG"/>
+                            <constraint firstItem="AtG-zc-xmq" firstAttribute="trailing" secondItem="puy-Xm-ifQ" secondAttribute="trailing" constant="5" id="PVB-91-fku"/>
                             <constraint firstItem="1Gr-VV-hNi" firstAttribute="leading" secondItem="AtG-zc-xmq" secondAttribute="leading" id="Znf-AK-huw"/>
                             <constraint firstItem="1Gr-VV-hNi" firstAttribute="top" secondItem="AtG-zc-xmq" secondAttribute="top" id="e5F-WQ-bqf"/>
                             <constraint firstItem="dV9-fI-5cn" firstAttribute="trailing" secondItem="AtG-zc-xmq" secondAttribute="trailing" id="p0Y-PD-1Mp"/>
