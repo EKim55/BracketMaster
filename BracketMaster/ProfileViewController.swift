@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
         profileStorageRef = Storage.storage().reference(withPath: "profile")
         uid = Auth.auth().currentUser?.uid
         profileDocRef = Firestore.firestore().collection("profile").document(uid)
+        print("\(uid)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
