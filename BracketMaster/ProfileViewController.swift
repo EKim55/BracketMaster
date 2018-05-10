@@ -22,8 +22,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileStorageRef = Storage.storage().reference(withPath: "profile")
         uid = Auth.auth().currentUser?.uid
+        profileStorageRef = Storage.storage().reference(withPath: uid)
         profileDocRef = Firestore.firestore().collection("profile").document(uid)
         print("\(uid)")
     }
