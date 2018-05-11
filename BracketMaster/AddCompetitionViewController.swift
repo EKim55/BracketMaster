@@ -16,9 +16,14 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
-    let doneSegueIdentifier = "donePopoverSegue"
+    //new league variables to be filled out
     
-    let numberOfParticipants = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    
+    let doneSegueIdentifier = "donePopoverSegue"
+    let backSegueIdentifier = "backButtonSegue"
+    var pressedBack = false
+    
+    let numberOfParticipants = ["2", "3", "4", "5", "6", "7", "8"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +39,22 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func pressedDone(_ sender: Any) {
-        if textField.text == "" {
+        if textField.text == "" && !pressedBack{
             let alertController = UIAlertController(title: "Please input a name for your league.", message: nil, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
+            print(pressedBack)
         } else {
             //pass information to previous VC
         }
     }
     
     @IBAction func pressedBack(_ sender: Any) {
-        textField.text = " "
-        pressedDone(Any.self)
+        pressedBack = true
+        textField.text = "    "
+        pressedDone((Any).self)
+        //print(pressedBack)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

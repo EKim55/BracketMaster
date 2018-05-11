@@ -359,7 +359,6 @@
         <image name="circle-user-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x13-iZ-KL7"/>
         <segue reference="uds-LH-1up"/>
     </inferredMetricsTieBreakers>
 </document>
