@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var competitionRef: CollectionReference!
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -22,6 +25,8 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     let doneSegueIdentifier = "donePopoverSegue"
     let backSegueIdentifier = "backButtonSegue"
     var pressedBack = false
+    var competitionName: String = ""
+    var numParticipants: Int = 0
     
     let numberOfParticipants = ["2", "3", "4", "5", "6", "7", "8"]
     
@@ -36,6 +41,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
         textField.isHidden = true
         doneButton.isHidden = true
         textField.text = ""
+        competitionRef = Firestore.firestore().collection("competitions")
     }
     
     @IBAction func pressedDone(_ sender: Any) {
@@ -45,15 +51,24 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
             print(pressedBack)
+            
         } else {
             //pass information to previous VC
+            competitionName = textField.text!
+            print(competitionName)
+            var people = [String]()
+            for i in 0..<numParticipants {
+                people.append("Player \(i+1)")
+            }
+            let newCompetition = Competition(isLeague: true, people: people, numberOfParticipants: numParticipants, competitionName: competitionName)
+            competitionRef.addDocument(data: newCompetition.data)
         }
     }
     
     @IBAction func pressedBack(_ sender: Any) {
         pressedBack = true
         textField.text = "    "
-        pressedDone((Any).self)
+        self.pressedDone((Any).self)
         //print(pressedBack)
     }
     
@@ -70,6 +85,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        numParticipants = row + 2
         label.text = "What would you like to call this league?"
         pickerView.isHidden = true
         textField.isHidden = false
