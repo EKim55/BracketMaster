@@ -39,11 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         guard let auth = user.authentication else {return}
         let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (auth, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
+//        Auth.auth().signIn(with: credential) { (user, error) in
+//            if let error = error {
+//                print("Error: \(error.localizedDescription)")
+//            }
+//        }
         print("you are now signed in with Google: \(user.profile.email)")
         handleLogin()
     }
