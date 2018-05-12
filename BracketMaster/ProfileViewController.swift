@@ -11,6 +11,8 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var loadingImageLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
@@ -33,14 +35,17 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileListener = profileDocRef.addSnapshotListener({ (snapshot, error) in
-            if (self.name == nil) {
+            if self.name == nil {
                 self.name = "name"
             }
-            if (self.username == nil) {
+            if self.username == nil {
                 self.username = "username"
             }
-            if (self.url == nil) {
+            if self.url == nil {
                 self.url = "http://arrkenterprises.com/wp-content/uploads/2015/02/empty-profile-pic.png"
+                self.activityIndicator.isHidden = true
+            } else if self.url != nil {
+                self.activityIndicator.startAnimating()
             }
             if let error = error {
                 print("Error getting the Firestore document \(error.localizedDescription)")
@@ -60,6 +65,8 @@ class ProfileViewController: UIViewController {
                         }
                     }
                 }
+                self.activityIndicator.stopAnimating()
+                self.loadingImageLabel.isHidden = true
                 self.url = url
             }        })
     }
