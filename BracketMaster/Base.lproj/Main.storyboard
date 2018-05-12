@@ -201,7 +201,7 @@
         <!--Add Competition View Controller-->
         <scene sceneID="4GC-9y-N5i">
             <objects>
-                <viewController id="Qvq-oF-XJN" customClass="AddCompetitionViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCompetitionViewController" id="Qvq-oF-XJN" customClass="AddCompetitionViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DeT-ig-2nS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
