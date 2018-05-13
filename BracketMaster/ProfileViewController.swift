@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    
     var profileStorageRef: StorageReference!
     var profileDocRef: DocumentReference!
     var profileListener: ListenerRegistration!
@@ -30,6 +31,8 @@ class ProfileViewController: UIViewController {
         uid = Auth.auth().currentUser?.uid
         profileStorageRef = Storage.storage().reference(withPath: uid)
         profileDocRef = Firestore.firestore().collection("profile").document(uid)
+        activityIndicator.startAnimating()
+        loadingImageLabel.text = "Loading Image..."
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,12 +43,6 @@ class ProfileViewController: UIViewController {
             }
             if self.username == nil {
                 self.username = "username"
-            }
-            if self.url == nil {
-                self.url = "http://arrkenterprises.com/wp-content/uploads/2015/02/empty-profile-pic.png"
-                self.activityIndicator.isHidden = true
-            } else if self.url != nil {
-                self.activityIndicator.startAnimating()
             }
             if let error = error {
                 print("Error getting the Firestore document \(error.localizedDescription)")
@@ -65,10 +62,14 @@ class ProfileViewController: UIViewController {
                         }
                     }
                 }
-                self.activityIndicator.stopAnimating()
-                self.loadingImageLabel.isHidden = true
                 self.url = url
-            }        })
+            }
+            if self.url == nil {
+                self.url = "http://arrkenterprises.com/wp-content/uploads/2015/02/empty-profile-pic.png"
+                self.activityIndicator.isHidden = true
+                self.loadingImageLabel.isHidden = true
+            }
+        })
     }
     @IBAction func nameChange(_ sender: Any) {
         self.name = self.nameTextField.text
