@@ -51,4 +51,8 @@ class Competition: NSObject {
                 participantsKey: self.participants,
                 nameKey: self.name]
     }
+    
+    public func setNames(_ newParticipantNames: [String]) {
+        self.participants = newParticipantNames
+    }
 }

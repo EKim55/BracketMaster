@@ -108,4 +108,33 @@ class HomeTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comp = competitions[indexPath.row]
+        showEditDialog(comp)
+    }
+    
+    func showEditDialog(_ comp: Competition) {
+        let alertController = UIAlertController(title: "Edit Names of the Players", message: "Please fill in all fields", preferredStyle: .alert)
+        let rows = comp.numParticipants!
+        for i in 0..<rows {
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Player \(i+1)'s Name"
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let changeNamesAction = UIAlertAction(title: "Edit", style: .default) { (action) in
+            var newNames = [String]()
+            for i in 0..<rows {
+                let textField = alertController.textFields![i]
+                newNames.append(textField.text!)
+            }
+            comp.setNames(newNames)
+            let compDocumentRef = self.competitionsRef.document(comp.id!)
+            compDocumentRef.setData(comp.data)
+        }
+        alertController.addAction(changeNamesAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
