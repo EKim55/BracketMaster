@@ -14,6 +14,8 @@ class HomeTableViewController: UITableViewController {
     var competitionsRef: CollectionReference!
     var competitionsListener: ListenerRegistration!
         
+    @IBOutlet weak var addButton: UIButton!
+    
     let competitionCellIdentifier = "CompetitionCell"
     let noCompetitionsCellIdentifier = "NoCompetitionsCell"
     var competitions = [Competition]()
@@ -22,6 +24,7 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = "Your Competitions"
         competitionsRef = Firestore.firestore().collection("competitions")
+        print("addButton: \(addButton.isEnabled)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +87,7 @@ class HomeTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        competitionsListener.remove()
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -104,15 +108,4 @@ class HomeTableViewController: UITableViewController {
         }
         return cell
     }
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
- 
-
 }

@@ -20,13 +20,11 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var doneButton: UIButton!
     
     //new league variables to be filled out
-    
-    
-    let doneSegueIdentifier = "donePopoverSegue"
-    let backSegueIdentifier = "backButtonSegue"
-    var pressedBack = false
     var competitionName: String = ""
     var numParticipants: Int = 0
+    
+    let backToHomeSegueIdentifier = "BackToHomeSegue"
+    var pressedBack = false
     
     let numberOfParticipants = ["2", "3", "4", "5", "6", "7", "8"]
     
@@ -52,6 +50,9 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             present(alertController, animated: true, completion: nil)
             print(pressedBack)
             
+        } else if textField.text == "    " {
+            //handle case where pressing back might accidentally trigger this method
+            
         } else {
             //pass information to previous VC
             competitionName = textField.text!
@@ -66,10 +67,11 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func pressedBack(_ sender: Any) {
-        pressedBack = true
+//        pressedBack = true
         textField.text = "    "
-        self.pressedDone((Any).self)
+//        self.pressedDone((Any).self)
         //print(pressedBack)
+        performSegue(withIdentifier: backToHomeSegueIdentifier, sender: sender)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

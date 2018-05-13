@@ -90,6 +90,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="bMb-a6-Bri"/>
+                    <connections>
+                        <outlet property="addButton" destination="F8N-6x-djK" id="CBk-Mr-75I"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Im-E0-6mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,7 +260,7 @@
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="pressedDone:" destination="Qvq-oF-XJN" eventType="touchUpInside" id="U9e-4m-Af7"/>
-                                            <segue destination="7fd-4G-mZQ" kind="show" id="uds-LH-1up"/>
+                                            <segue destination="7fd-4G-mZQ" kind="show" identifier="BackToHomeSegue" id="uds-LH-1up"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78L-sn-X6X">
@@ -375,6 +378,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="x13-iZ-KL7"/>
         <segue reference="uds-LH-1up"/>
     </inferredMetricsTieBreakers>
 </document>

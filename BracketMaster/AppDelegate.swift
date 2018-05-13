@@ -49,11 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("Error: \(error.localizedDescription)")
             }
         }
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
         print("you are now signed in with Google: \(user.profile.email)")
         handleLogin()
     }
