@@ -30,16 +30,18 @@ class HomeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         competitions.removeAll()
-        loadAllCompetitions()
+        loadCompetitions()
     }
     
-    func loadAllCompetitions() {
-        competitionsListener = competitionsRef.order(by: "created", descending: true).addSnapshotListener({ (querySnapshot, error) in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching competitions for table: \(String(describing: error?.localizedDescription))")
+    func loadCompetitions() {
+        let uidQuery = self.competitionsRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any)
+        competitions.removeAll()
+        uidQuery.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error fetching competitions for table: \(error.localizedDescription)")
                 return
             }
-            snapshot.documentChanges.forEach({ (docChange) in
+            querySnapshot?.documentChanges.forEach({ (docChange) in
                 if docChange.type == .added {
                     print("New competition: \(docChange.document.data())")
                     self.competitionAdded(docChange.document)
@@ -55,7 +57,7 @@ class HomeTableViewController: UITableViewController {
                 })
             })
             self.tableView.reloadData()
-        })
+        }
     }
     
     func competitionAdded(_ document: DocumentSnapshot) {
@@ -130,7 +132,7 @@ class HomeTableViewController: UITableViewController {
                 let textField = alertController.textFields![i]
                 newNames.append(textField.text!)
             }
-            comp.setNames(newNames)
+            comp.participants = newNames
             let compDocumentRef = self.competitionsRef.document(comp.id!)
             compDocumentRef.setData(comp.data)
         }

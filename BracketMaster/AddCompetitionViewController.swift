@@ -61,13 +61,12 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             for i in 0..<numParticipants {
                 people.append("Player \(i+1)")
             }
-            let newCompetition = Competition(isLeague: true, people: people, numberOfParticipants: numParticipants, competitionName: competitionName)
+            let newCompetition = Competition(isLeague: true, people: people, numberOfParticipants: numParticipants, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
             competitionRef.addDocument(data: newCompetition.data)
         }
     }
     
     @IBAction func pressedBack(_ sender: Any) {
-//        pressedBack = true
         textField.text = "    "
 //        self.pressedDone((Any).self)
         //print(pressedBack)
