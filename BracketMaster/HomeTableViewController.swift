@@ -12,7 +12,6 @@ import Firebase
 class HomeTableViewController: UITableViewController {
     
     var competitionsRef: CollectionReference!
-    var competitionsListener: ListenerRegistration!
         
     @IBOutlet weak var addButton: UIButton!
     
@@ -89,7 +88,6 @@ class HomeTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        competitionsListener.remove()
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
