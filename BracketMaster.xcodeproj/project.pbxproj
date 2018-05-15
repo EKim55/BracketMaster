@@ -82,12 +82,12 @@
 				0AFBD86520919A6D009F1C93 /* HomeTableViewController.swift */,
 				891FE66120A415F100FC8027 /* AddCompetitionViewController.swift */,
 				897A57012091A42D00628CEF /* ProfileViewController.swift */,
+				0ADF016820A9649E000CF133 /* CompetitionViewController.swift */,
 				89E5A74A2091AD1D002BFF4E /* TabBarController.swift */,
 				89582E452098BD58007EBEF8 /* Competition.swift */,
 				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
 				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
-				0ADF016820A9649E000CF133 /* CompetitionViewController.swift */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";
