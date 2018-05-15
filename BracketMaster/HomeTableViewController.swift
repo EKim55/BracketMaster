@@ -119,7 +119,7 @@ class HomeTableViewController: UITableViewController {
         let rows = comp.numPlayers!
         for i in 0..<rows {
             alertController.addTextField { (textField) in
-                textField.placeholder = "Player \(i+1)'s Name"
+                textField.placeholder = "\(comp.players[i].name)'s Name"
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
