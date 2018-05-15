@@ -24,7 +24,6 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     var numPlayers: Int = 0
     
     let backToHomeSegueIdentifier = "BackToHomeSegue"
-    var pressedBack = false
     
     let numberOfParticipants = ["2", "3", "4", "5", "6", "7", "8"]
     
@@ -43,32 +42,23 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func pressedDone(_ sender: Any) {
-        if textField.text == "" && !pressedBack{
-            let alertController = UIAlertController(title: "Please input a name for your league.", message: nil, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            print(pressedBack)
-            
-        } else if textField.text == "    " {
-            //handle case where pressing back might accidentally trigger this method
-            
-        } else {
-            competitionName = textField.text!
-            var players = [Player]()
-            for i in 0..<numPlayers {
-                let player = Player(playerName: "Player \(i+1)", numWins: 0, numLosses: 0)
-                players.append(player)
-            }
-            let newCompetition = Competition(isLeague: true, people: players, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
-            competitionRef.addDocument(data: newCompetition.data)
+        competitionName = textField.text!
+        var players = [Player]()
+        for i in 0..<numPlayers {
+            let player = Player(playerName: "Player \(i+1)", numWins: 0, numLosses: 0)
+            players.append(player)
         }
+        let newCompetition = Competition(isLeague: true, people: players, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
+        if competitionRef == nil {
+            print("competitionRef is nil")
+        } else {
+            print("\(newCompetition.data)")
+        }
+        competitionRef.addDocument(data: newCompetition.data)
     }
     
     @IBAction func pressedBack(_ sender: Any) {
         textField.text = "    "
-//        self.pressedDone((Any).self)
-        //print(pressedBack)
         performSegue(withIdentifier: backToHomeSegueIdentifier, sender: sender)
     }
     

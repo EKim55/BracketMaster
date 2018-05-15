@@ -448,7 +448,7 @@
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="pressedDone:" destination="Qvq-oF-XJN" eventType="touchUpInside" id="U9e-4m-Af7"/>
-                                            <segue destination="7fd-4G-mZQ" kind="show" identifier="BackToHomeSegue" id="uds-LH-1up"/>
+                                            <segue destination="J2M-lB-nt8" kind="show" identifier="BackToHomeSegue" id="LrD-Jc-xb4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78L-sn-X6X">
@@ -462,7 +462,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tEN-pR-Ez5" secondAttribute="trailing" constant="153" id="3S1-U0-uFT"/>
                                     <constraint firstItem="tEN-pR-Ez5" firstAttribute="centerX" secondItem="CwA-VB-Zqa" secondAttribute="centerX" id="5lJ-wZ-8VY"/>
                                     <constraint firstItem="tEN-pR-Ez5" firstAttribute="top" secondItem="CwA-VB-Zqa" secondAttribute="top" constant="11" id="8YT-MS-v19"/>
                                     <constraint firstAttribute="trailing" secondItem="Nil-1d-v29" secondAttribute="trailing" constant="19" id="94X-bN-c4f"/>
@@ -471,7 +470,6 @@
                                     <constraint firstItem="78L-sn-X6X" firstAttribute="centerY" secondItem="CwA-VB-Zqa" secondAttribute="centerY" id="L8V-MY-BQ3"/>
                                     <constraint firstItem="tEN-pR-Ez5" firstAttribute="centerY" secondItem="CwA-VB-Zqa" secondAttribute="centerY" id="Ym1-74-YYP"/>
                                     <constraint firstItem="tEN-pR-Ez5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="78L-sn-X6X" secondAttribute="trailing" constant="8" symbolic="YES" id="cWC-k3-Dw9"/>
-                                    <constraint firstItem="tEN-pR-Ez5" firstAttribute="leading" secondItem="CwA-VB-Zqa" secondAttribute="leading" constant="153" id="d1s-CE-44s"/>
                                     <constraint firstAttribute="bottom" secondItem="tEN-pR-Ez5" secondAttribute="bottom" constant="10" id="dJX-iG-5UC"/>
                                     <constraint firstAttribute="height" constant="44" id="mjx-XY-fej"/>
                                     <constraint firstItem="Nil-1d-v29" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tEN-pR-Ez5" secondAttribute="trailing" constant="8" symbolic="YES" id="utB-jb-i4a"/>
@@ -514,7 +512,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="tabBar" destination="r70-t4-RwN" id="ETX-cr-6qo"/>
                         <segue destination="7fd-4G-mZQ" kind="relationship" relationship="viewControllers" id="4D4-Zv-BYX"/>
                         <segue destination="Zcj-zf-yvv" kind="relationship" relationship="viewControllers" id="8AC-xV-NGv"/>
                         <segue destination="nVP-2h-A3G" kind="relationship" relationship="viewControllers" id="8TD-Zn-TvG"/>
@@ -565,7 +562,4 @@
             <point key="canvasLocation" x="-230" y="893"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="4D4-Zv-BYX"/>
-    </inferredMetricsTieBreakers>
 </document>
