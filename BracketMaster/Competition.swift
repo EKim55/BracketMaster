@@ -12,24 +12,24 @@ import Firebase
 class Competition: NSObject {
     var id: String?
     var isLeague: Bool
-    var participants: [String]!
-    var numParticipants: Int!
+    var players: [Player]!
+    var numPlayers: Int!
     var name: String!
     var created: Date!
     var uid: String!
     
     let createdKey = "created"
     let isLeagueKey = "isLeague"
-    let participantsKey = "participants"
-    let numParticipantsKey = "numParticipants"
+    let playersKey = "players"
+    let numPlayersKey = "numPlayers"
     let nameKey = "name"
     let uidKey = "uid"
     
-    init(isLeague: Bool, people: [String], numberOfParticipants: Int, competitionName: String, userID: String) {
+    init(isLeague: Bool, people: [Player], numberOfPlayers: Int, competitionName: String, userID: String) {
         self.isLeague = isLeague
-        self.numParticipants = numberOfParticipants
+        self.numPlayers = numberOfPlayers
         self.name = competitionName
-        self.participants = people
+        self.players = people
         self.uid = userID
         self.created = Date()
         
@@ -39,8 +39,8 @@ class Competition: NSObject {
         self.id = documentSnapshot.documentID
         let data = documentSnapshot.data()!
         self.isLeague = data[isLeagueKey] as! Bool
-        self.numParticipants = data[numParticipantsKey] as! Int
-        self.participants = data[participantsKey] as? [String]
+        self.numPlayers = data[numPlayersKey] as! Int
+        self.players = data[playersKey] as? [Player]
         self.name = data[nameKey] as! String
         self.uid = data[uidKey] as! String
         if data[createdKey] != nil {
@@ -51,13 +51,15 @@ class Competition: NSObject {
     var data: [String: Any] {
         return [isLeagueKey: self.isLeague,
                 createdKey: self.created,
-                numParticipantsKey: self.numParticipants,
-                participantsKey: self.participants,
+                numPlayersKey: self.numPlayers,
+                playersKey: self.players,
                 nameKey: self.name,
                 uidKey: self.uid]
     }
     
-    public func setNames(_ newParticipantNames: [String]) {
-        self.participants = newParticipantNames
+    public func setNames(_ newNames: [String]) {
+        for i in 0..<players.count {
+            players[i].name = newNames[i]
+        }
     }
 }

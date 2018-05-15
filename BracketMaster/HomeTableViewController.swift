@@ -70,7 +70,7 @@ class HomeTableViewController: UITableViewController {
         for comp in competitions {
             if comp.id == modifiedComp.id {
                 comp.name = modifiedComp.name
-                comp.participants = modifiedComp.participants     // cannot modify number of participants after creation
+                comp.players = modifiedComp.players     // cannot modify number of participants after creation
                 break
             }
         }
@@ -116,7 +116,7 @@ class HomeTableViewController: UITableViewController {
     
     func showEditDialog(_ comp: Competition) {
         let alertController = UIAlertController(title: "Edit Names of the Players", message: "Please fill in all fields", preferredStyle: .alert)
-        let rows = comp.numParticipants!
+        let rows = comp.numPlayers!
         for i in 0..<rows {
             alertController.addTextField { (textField) in
                 textField.placeholder = "Player \(i+1)'s Name"
@@ -130,7 +130,7 @@ class HomeTableViewController: UITableViewController {
                 let textField = alertController.textFields![i]
                 newNames.append(textField.text!)
             }
-            comp.participants = newNames
+            comp.setNames(newNames)
             let compDocumentRef = self.competitionsRef.document(comp.id!)
             compDocumentRef.setData(comp.data)
         }

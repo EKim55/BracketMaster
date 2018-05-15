@@ -21,7 +21,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     //new league variables to be filled out
     var competitionName: String = ""
-    var numParticipants: Int = 0
+    var numPlayers: Int = 0
     
     let backToHomeSegueIdentifier = "BackToHomeSegue"
     var pressedBack = false
@@ -54,14 +54,13 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             //handle case where pressing back might accidentally trigger this method
             
         } else {
-            //pass information to previous VC
             competitionName = textField.text!
-            print(competitionName)
-            var people = [String]()
-            for i in 0..<numParticipants {
-                people.append("Player \(i+1)")
+            var players = [Player]()
+            for i in 0..<numPlayers {
+                let player = Player(playerName: "Player \(i+1)", numWins: 0, numLosses: 0)
+                players.append(player)
             }
-            let newCompetition = Competition(isLeague: true, people: people, numberOfParticipants: numParticipants, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
+            let newCompetition = Competition(isLeague: true, people: players, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
             competitionRef.addDocument(data: newCompetition.data)
         }
     }
@@ -86,7 +85,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        numParticipants = row + 2
+        numPlayers = row + 2
         label.text = "What would you like to call this league?"
         pickerView.isHidden = true
         textField.isHidden = false
