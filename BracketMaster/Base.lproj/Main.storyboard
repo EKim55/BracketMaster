@@ -184,10 +184,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-cq-bud">
-                                <rect key="frame" x="129" y="650" width="156" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uu-Ft-Kj7">
                                 <rect key="frame" x="59" y="41" width="199" height="25"/>
                                 <constraints>
@@ -248,6 +244,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-cq-bud">
+                                <rect key="frame" x="129" y="650" width="156" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -291,6 +291,7 @@
                     <tabBarItem key="tabBarItem" title="Competition" id="u2v-sx-f1a"/>
                     <connections>
                         <outlet property="lossTable" destination="auh-5D-Xpd" id="AMO-Na-PGW"/>
+                        <outlet property="pageControl" destination="TpA-cq-bud" id="Kkj-A8-58h"/>
                         <outlet property="playerTable" destination="ptv-72-JB8" id="Ir1-7N-2x2"/>
                         <outlet property="rankTable" destination="0FV-k7-RAI" id="hDe-Fv-uGd"/>
                         <outlet property="titleLabel" destination="zdh-oG-O5L" id="ME2-8h-qZ5"/>
