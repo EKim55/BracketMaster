@@ -86,7 +86,7 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
         if (self.competition == nil) {
             return 10
         }
-        return self.competition.numParticipants
+        return self.competition.numPlayers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
