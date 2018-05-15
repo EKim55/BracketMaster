@@ -49,12 +49,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             players.append(player)
         }
         let newCompetition = Competition(isLeague: true, people: players, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
-        if competitionRef == nil {
-            print("competitionRef is nil")
-        } else {
-            print("\(newCompetition.data)")
-        }
-        competitionRef.addDocument(data: newCompetition.data)
+        //competitionRef.addDocument(data: newCompetition.data)
     }
     
     @IBAction func pressedBack(_ sender: Any) {
@@ -79,7 +74,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
         label.text = "What would you like to call this league?"
         pickerView.isHidden = true
         textField.isHidden = false
-        textField.backgroundColor = UIColor(ciColor: CIColor.white)
+        textField.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 1)
         doneButton.isHidden = false
     }
 
