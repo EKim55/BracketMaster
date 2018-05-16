@@ -130,7 +130,8 @@ class HomeTableViewController: UITableViewController {
             showEditDialog(comp)
         } else {
             tableView.cellForRow(at: indexPath)?.isSelected = false
-            print("hi")
+            ((self.tabBarController?.viewControllers![1] as! PageViewController).orderedViewControllers[0] as! CompetitionViewController).competition = self.competitions[indexPath.row]
+            ((self.tabBarController?.viewControllers![1] as! PageViewController).orderedViewControllers[1] as! ScheduleViewController).competition = self.competitions[indexPath.row]
             self.tabBarController?.selectedIndex = 1
         }
     }

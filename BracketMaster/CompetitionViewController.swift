@@ -54,7 +54,11 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadCompetition()
+        if (self.competition == nil) {
+            loadCompetition()
+        } else {
+            loadSelectedCompetition()
+        }
     }
     
     func loadCompetition() {
@@ -74,6 +78,15 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
             self.lossTable.reloadData()
             self.getPlayers()
         }
+    }
+    
+    func loadSelectedCompetition() {
+        self.titleLabel.text = self.competition.name
+        self.rankTable.reloadData()
+        self.playerTable.reloadData()
+        self.winsTable.reloadData()
+        self.lossTable.reloadData()
+        self.getPlayers()
     }
     
     func getPlayers() {

@@ -32,7 +32,18 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadCompetition()
+        if (self.competition == nil) {
+            loadCompetition()
+        }
+        else {
+            loadSelectedCompetition()
+        }
+    }
+    
+    func loadSelectedCompetition() {
+        self.titleLabel.text = self.competition.name
+        self.scheduleTable.reloadData()
+        self.getPlayers()
     }
     
     func loadCompetition() {
