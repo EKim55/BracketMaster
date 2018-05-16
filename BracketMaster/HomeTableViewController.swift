@@ -11,6 +11,8 @@ import Firebase
 
 class HomeTableViewController: UITableViewController {
     
+    var window: UIWindow?
+    
     var competitionsRef: CollectionReference!
         
     @IBOutlet weak var addButton: UIButton!
@@ -128,6 +130,8 @@ class HomeTableViewController: UITableViewController {
             showEditDialog(comp)
         } else {
             tableView.cellForRow(at: indexPath)?.isSelected = false
+            print("hi")
+            self.tabBarController?.selectedIndex = 1
         }
     }
     
@@ -167,9 +171,5 @@ class HomeTableViewController: UITableViewController {
         }
         alertController.addAction(changeNamesAction)
         present(alertController, animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
 }
