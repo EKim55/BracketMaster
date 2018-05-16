@@ -122,33 +122,45 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         let result = showActionMenu(match)
         let cell = tableView.cellForRow(at: indexPath)
         let winningPlayer: Player?
-        if match.result! {
-            winningPlayer = match.playerOne
+        if result == 0 {
+            return
         } else {
-            winningPlayer = match.playerTwo
+            if result == 1 {
+                winningPlayer = match.playerOne
+            } else {
+                winningPlayer = match.playerTwo
+            }
+            
+            let name = NSMutableAttributedString(attributedString: NSAttributedString(string: (winningPlayer?.name)!))
+            let range = NSMakeRange(0, (winningPlayer?.name.count)!)
+            name.addAttribute(NSAttributedStringKey.font, value: UIFont(descriptor: UIFontDescriptor(name: "Helvetica-Bold", size: 17), size: 17), range: range)
+            cell?.textLabel?.attributedText = name
         }
-        let name = NSMutableAttributedString(attributedString: NSAttributedString(string: (winningPlayer?.name)!))
-        let range = NSMakeRange(0, (winningPlayer?.name.count)!)
-        name.addAttribute(NSAttributedStringKey.font, value: UIFont(descriptor: UIFontDescriptor(name: "Helvetica-Bold", size: 17), size: 17), range: range)
-        cell?.textLabel?.attributedText = name
+        cell?.isSelected = false
     }
     
-    func showActionMenu(_ match: Match) -> Bool {
+    func showActionMenu(_ match: Match) -> Int {
         let menu: UIAlertController = UIAlertController(title: "Who won?", message: nil, preferredStyle: .actionSheet)
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        var toReturn: Int = 0
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            toReturn = 0
+        }
         menu.addAction(cancelButton)
         
         let player1WinsButton = UIAlertAction(title: "Player 1 Wins!", style: .default) { (action) in
             match.result = true
+            toReturn = 1
         }
         menu.addAction(player1WinsButton)
         
         let player2WinsButton = UIAlertAction(title: "Player 2 Wins!", style: .default) { (action) in
             match.result = false
+            toReturn = 2
         }
+        menu.addAction(player2WinsButton)
+        
         self.present(menu, animated: true, completion: nil)
-        return match.result
+        return toReturn
     }
     
 }
