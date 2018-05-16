@@ -115,6 +115,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     func showEditDialog(_ comp: Competition) {
+        print("Entered edit dialog")
         let alertController = UIAlertController(title: "Edit Names of the Players", message: "Please fill in all fields", preferredStyle: .alert)
         let rows = comp.numPlayers!
         for i in 0..<rows {
