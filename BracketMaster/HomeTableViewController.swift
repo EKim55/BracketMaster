@@ -31,10 +31,10 @@ class HomeTableViewController: UITableViewController {
     @IBAction func pressedEdit(_ sender: Any) {
         if !canEdit {
             canEdit = true
-            editButton.titleLabel?.text = "Done Editing"
+            editButton.setTitle("Done Editing", for: .normal)
         } else {
             canEdit = false
-            editButton.titleLabel?.text = "Edit"
+            editButton.setTitle("Edit", for: .normal)
         }
     }
     
@@ -103,7 +103,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(true, animated: true)
+        super.setEditing(editing, animated: animated)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,6 +125,19 @@ class HomeTableViewController: UITableViewController {
         let comp = competitions[indexPath.row]
         if canEdit {
             showEditDialog(comp)
+        } else {
+            tableView.cellForRow(at: indexPath)?.isSelected = false
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return competitions.count > 0
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let competitionToDelete = competitions[indexPath.row]
+            competitionsRef.document(competitionToDelete.id!).delete()
         }
     }
     
