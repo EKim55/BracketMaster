@@ -65,15 +65,15 @@ class HomeTableViewController: UITableViewController {
     }
     
     func competitionModified(_ document: DocumentSnapshot) {
-        let modifiedComp = Competition(documentSnapshot: document)
+        let _ = Competition(documentSnapshot: document)
         
-        for comp in competitions {
-            if comp.id == modifiedComp.id {
-                comp.name = modifiedComp.name
-                comp.players = modifiedComp.players     // cannot modify number of participants after creation
-                break
-            }
-        }
+//        for comp in competitions {
+//            if comp.id == modifiedComp.id {
+//                comp.name = modifiedComp.name
+//                comp.players = modifiedComp.players     // cannot modify number of participants after creation
+//                break
+//            }
+//        }
     }
     
     func competitionRemoved(_ document: DocumentSnapshot) {
@@ -119,7 +119,7 @@ class HomeTableViewController: UITableViewController {
         let rows = comp.numPlayers!
         for i in 0..<rows {
             alertController.addTextField { (textField) in
-                textField.placeholder = "\(comp.players[i].name)'s Name"
+                textField.placeholder = "Player \(i+1)'s Name"
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -130,9 +130,28 @@ class HomeTableViewController: UITableViewController {
                 let textField = alertController.textFields![i]
                 newNames.append(textField.text!)
             }
-            comp.setNames(newNames)
-            let compDocumentRef = self.competitionsRef.document(comp.id!)
-            compDocumentRef.setData(comp.data)
+//            let compDocumentRef = self.competitionsRef.document(comp.id!)
+//            compDocumentRef.setData(comp.data)
+            comp.playersCollectionRef?.getDocuments(completion: { (snapshot, error) in
+                let docs = snapshot?.documents
+                var i = 0
+                for doc in docs! {
+                    let wins = doc.data()["wins"]
+                    let losses = doc.data()["losses"]
+                    comp.playersCollectionRef?.document(doc.documentID).setData([
+                        "name" : newNames[i],
+                        "wins" : wins!,
+                        "losses" : losses!
+                        ], completion: { (error) in
+                        if let error = error {
+                            print("Error setting new names for players: \(error.localizedDescription)")
+                        } else {
+                            print("Successfully changed name for \(doc.documentID)")
+                        }
+                    })
+                    i += 1
+                }
+            })
         }
         alertController.addAction(changeNamesAction)
         present(alertController, animated: true, completion: nil)

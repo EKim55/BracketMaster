@@ -51,7 +51,21 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
         let newCompetition = Competition(isLeague: true, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
         let docRef: DocumentReference = competitionRef.addDocument(data: newCompetition.data)
         let playersRef: CollectionReference = docRef.collection("players")
+        newCompetition.playersCollectionRef = playersRef
         
+        for i in 0..<players.count {
+            playersRef.document("Player \(i+1)").setData([
+                "name" : players[i].name,
+                "wins" : players[i].wins,
+                "losses" : players[i].losses
+            ]) { (error) in
+                if let error = error {
+                    print("Error making documents for individual players: \(error.localizedDescription)")
+                } else {
+                    print("Successfully made document for Player \(i+1)")
+                }
+            }
+        }
     }
     
     @IBAction func pressedBack(_ sender: Any) {
