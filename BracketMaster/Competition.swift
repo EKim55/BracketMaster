@@ -12,7 +12,7 @@ import Firebase
 class Competition: NSObject {
     var id: String?
     var isLeague: Bool
-    var players: [Player]!
+    var players: [Player]?
     var numPlayers: Int!
     var name: String!
     var created: Date!
@@ -25,11 +25,11 @@ class Competition: NSObject {
     let nameKey = "name"
     let uidKey = "uid"
     
-    init(isLeague: Bool, people: [Player], numberOfPlayers: Int, competitionName: String, userID: String) {
+    init(isLeague: Bool, numberOfPlayers: Int, competitionName: String, userID: String) {
         self.isLeague = isLeague
         self.numPlayers = numberOfPlayers
         self.name = competitionName
-        self.players = people
+        //self.players = people
         self.uid = userID
         self.created = Date()
         
@@ -40,7 +40,7 @@ class Competition: NSObject {
         let data = documentSnapshot.data()!
         self.isLeague = data[isLeagueKey] as! Bool
         self.numPlayers = data[numPlayersKey] as! Int
-        self.players = data[playersKey] as? [Player]
+        //self.players = data[playersKey] as? [Player]
         self.name = data[nameKey] as! String
         self.uid = data[uidKey] as! String
         if data[createdKey] != nil {
@@ -52,14 +52,13 @@ class Competition: NSObject {
         return [isLeagueKey: self.isLeague,
                 createdKey: self.created,
                 numPlayersKey: self.numPlayers,
-                playersKey: self.players,
                 nameKey: self.name,
                 uidKey: self.uid]
     }
     
     public func setNames(_ newNames: [String]) {
-        for i in 0..<players.count {
-            players[i].name = newNames[i]
+        for i in 0..<players!.count {
+            players![i].name = newNames[i]
         }
     }
 }

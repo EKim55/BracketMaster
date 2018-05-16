@@ -48,8 +48,10 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             let player = Player(playerName: "Player \(i+1)", numWins: 0, numLosses: 0)
             players.append(player)
         }
-        let newCompetition = Competition(isLeague: true, people: players, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
-        //competitionRef.addDocument(data: newCompetition.data)
+        let newCompetition = Competition(isLeague: true, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
+        let docRef: DocumentReference = competitionRef.addDocument(data: newCompetition.data)
+        let playersRef: CollectionReference = docRef.collection("players")
+        
     }
     
     @IBAction func pressedBack(_ sender: Any) {
