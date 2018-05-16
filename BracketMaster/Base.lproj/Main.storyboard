@@ -111,7 +111,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Im-E0-6mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="95"/>
+            <point key="canvasLocation" x="1828" y="139"/>
         </scene>
         <!--Competition-->
         <scene sceneID="gyj-uQ-Wqe">
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2B1-8j-srG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2603" y="911"/>
+            <point key="canvasLocation" x="2925" y="911"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="jFx-R8-JjO">
@@ -372,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYB-Dl-94T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3349.275362318841" y="910.59782608695662"/>
+            <point key="canvasLocation" x="3754" y="911"/>
         </scene>
         <!--League-->
         <scene sceneID="p59-Qh-eRS">
@@ -488,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLV-PC-csP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="1708"/>
+            <point key="canvasLocation" x="1828" y="1654"/>
         </scene>
         <!--Add Competition View Controller-->
         <scene sceneID="4GC-9y-N5i">
@@ -582,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSZ-bT-XOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925" y="95"/>
+            <point key="canvasLocation" x="2925" y="139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="S3d-gk-13E">
@@ -645,6 +645,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x9f-E8-6cI"/>
+        <segue reference="LrD-Jc-xb4"/>
     </inferredMetricsTieBreakers>
 </document>
