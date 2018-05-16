@@ -14,16 +14,28 @@ class HomeTableViewController: UITableViewController {
     var competitionsRef: CollectionReference!
         
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     let competitionCellIdentifier = "CompetitionCell"
     let noCompetitionsCellIdentifier = "NoCompetitionsCell"
     var competitions = [Competition]()
+    var canEdit = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Your Competitions"
         competitionsRef = Firestore.firestore().collection("competitions")
         print("addButton: \(addButton.isEnabled)")
+    }
+    
+    @IBAction func pressedEdit(_ sender: Any) {
+        if !canEdit {
+            canEdit = true
+            editButton.titleLabel?.text = "Done Editing"
+        } else {
+            canEdit = false
+            editButton.titleLabel?.text = "Edit"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +123,9 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comp = competitions[indexPath.row]
-        showEditDialog(comp)
+        if canEdit {
+            showEditDialog(comp)
+        }
     }
     
     func showEditDialog(_ comp: Competition) {
