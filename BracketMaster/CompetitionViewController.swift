@@ -88,7 +88,7 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
                     print("Document does not exist")
                 }
                 self.players.sort(by: { (p1, p2) -> Bool in
-                    return p1.wins > p2.wins
+                    return p1.wins >= p2.wins
                 })
                 self.rankTable.reloadData()
                 self.playerTable.reloadData()
