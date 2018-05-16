@@ -297,10 +297,10 @@
             </objects>
             <point key="canvasLocation" x="2603" y="911"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule View Controller-->
         <scene sceneID="jFx-R8-JjO">
             <objects>
-                <viewController storyboardIdentifier="ScheduleView" id="vAK-Sc-68j" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScheduleView" id="vAK-Sc-68j" customClass="ScheduleViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyz-9H-Aiz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="66" width="414" height="670"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="bem-Ax-xC5" style="IBUITableViewCellStyleDefault" id="2Y5-DV-p3d">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MatchCell" textLabel="bem-Ax-xC5" style="IBUITableViewCellStyleDefault" id="2Y5-DV-p3d">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Y5-DV-p3d" id="1LV-Ty-T30">
@@ -350,6 +350,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdb-F6-mUg"/>
                     </view>
+                    <connections>
+                        <outlet property="scheduleTable" destination="fYf-DK-3fY" id="4NT-4o-6PM"/>
+                        <outlet property="titleLabel" destination="N72-Rx-dMs" id="hX3-Wm-9fE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYB-Dl-94T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
