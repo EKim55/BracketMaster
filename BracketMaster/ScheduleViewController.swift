@@ -59,7 +59,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 if let document = document, document.exists {
                     self.players.append(Player(playerName: document.data()!["name"] as! String,
                                                numWins: document.data()!["wins"] as! Int, numLosses: document.data()!["losses"] as! Int))
-                    print("\(i)")
+                    self.scheduleTable.reloadData()
                 } else {
                     print("Document does not exist")
                 }
@@ -72,6 +72,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func generateMatches() {
+        self.matches.removeAll()
         for i in 0..<(self.players.count - 1) {
             for j in i..<(self.players.count - 1) {
                 self.matches.append(Match(playerOne: self.players[i], playerTwo: self.players[j + 1]))
