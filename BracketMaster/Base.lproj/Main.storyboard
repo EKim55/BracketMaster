@@ -39,7 +39,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="F8N-6x-djK" secondAttribute="trailing" constant="19" id="3xu-1S-NGC"/>
                                 <constraint firstItem="F8N-6x-djK" firstAttribute="leading" secondItem="Hbb-fO-Kh1" secondAttribute="trailing" constant="127" id="F1z-Ip-JCK"/>
@@ -89,7 +89,7 @@
                             <outlet property="delegate" destination="7fd-4G-mZQ" id="gGi-1f-kDo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="bMb-a6-Bri"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="bMb-a6-Bri"/>
                     <connections>
                         <outlet property="addButton" destination="F8N-6x-djK" id="CBk-Mr-75I"/>
                     </connections>
@@ -101,13 +101,13 @@
         <!--Competition-->
         <scene sceneID="gyj-uQ-Wqe">
             <objects>
-                <viewController id="Zcj-zf-yvv" customClass="CompetitionViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableView" id="Zcj-zf-yvv" customClass="CompetitionViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GEE-D9-tys">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0FV-k7-RAI">
-                                <rect key="frame" x="0.0" y="66" width="60" height="621"/>
+                                <rect key="frame" x="0.0" y="66" width="60" height="670"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="16S-ZZ-bMH"/>
@@ -139,7 +139,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHk-d8-8gg">
-                                <rect key="frame" x="258" y="66" width="78" height="621"/>
+                                <rect key="frame" x="258" y="66" width="78" height="670"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WinsCell" textLabel="xTg-Qi-PRO" style="IBUITableViewCellStyleDefault" id="66G-pv-AIO">
@@ -162,7 +162,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="auh-5D-Xpd">
-                                <rect key="frame" x="335" y="66" width="79" height="621"/>
+                                <rect key="frame" x="335" y="66" width="79" height="670"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LossCell" textLabel="WYe-HL-kE9" style="IBUITableViewCellStyleDefault" id="XPH-3W-dZX">
@@ -222,7 +222,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptv-72-JB8">
-                                <rect key="frame" x="59" y="66" width="199" height="621"/>
+                                <rect key="frame" x="59" y="66" width="199" height="670"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" textLabel="9T0-5K-a8d" style="IBUITableViewCellStyleDefault" id="zsZ-ox-7xN">
@@ -244,10 +244,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-cq-bud">
-                                <rect key="frame" x="129" y="650" width="156" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -291,7 +287,6 @@
                     <tabBarItem key="tabBarItem" title="Competition" id="u2v-sx-f1a"/>
                     <connections>
                         <outlet property="lossTable" destination="auh-5D-Xpd" id="AMO-Na-PGW"/>
-                        <outlet property="pageControl" destination="TpA-cq-bud" id="Kkj-A8-58h"/>
                         <outlet property="playerTable" destination="ptv-72-JB8" id="Ir1-7N-2x2"/>
                         <outlet property="rankTable" destination="0FV-k7-RAI" id="hDe-Fv-uGd"/>
                         <outlet property="titleLabel" destination="zdh-oG-O5L" id="ME2-8h-qZ5"/>
@@ -300,7 +295,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2B1-8j-srG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895.6521739130437" y="892.66304347826099"/>
+            <point key="canvasLocation" x="2603" y="911"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jFx-R8-JjO">
+            <objects>
+                <viewController storyboardIdentifier="ScheduleView" id="vAK-Sc-68j" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fyz-9H-Aiz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="vdb-F6-mUg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYB-Dl-94T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3349" y="905"/>
+        </scene>
+        <!--League-->
+        <scene sceneID="p59-Qh-eRS">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QBs-Go-QGz" customClass="PageViewController" customModule="BracketMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="League" id="qwz-cD-k50"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKK-NF-XNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="911"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9aI-7K-oUy">
@@ -513,7 +533,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="7fd-4G-mZQ" kind="relationship" relationship="viewControllers" id="4D4-Zv-BYX"/>
-                        <segue destination="Zcj-zf-yvv" kind="relationship" relationship="viewControllers" id="8AC-xV-NGv"/>
+                        <segue destination="QBs-Go-QGz" kind="relationship" relationship="viewControllers" id="oXD-eM-bWI"/>
                         <segue destination="nVP-2h-A3G" kind="relationship" relationship="viewControllers" id="8TD-Zn-TvG"/>
                     </connections>
                 </tabBarController>

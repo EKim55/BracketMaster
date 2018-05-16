@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ADF016920A9649E000CF133 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF016820A9649E000CF133 /* CompetitionViewController.swift */; };
+		0ADF016B20ABB0F9000CF133 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF016A20ABB0F9000CF133 /* PageViewController.swift */; };
 		0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */; };
 		0AFBD8542090F1B6009F1C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8522090F1B6009F1C93 /* Main.storyboard */; };
 		0AFBD8592090F1B7009F1C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8582090F1B7009F1C93 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0AD647D2D3507295FE367230 /* Pods_BracketMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BracketMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADF016820A9649E000CF133 /* CompetitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
+		0ADF016A20ABB0F9000CF133 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		0AFBD84B2090F1B6009F1C93 /* BracketMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BracketMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AFBD8532090F1B6009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
 				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
+				0ADF016A20ABB0F9000CF133 /* PageViewController.swift */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89582E462098BD58007EBEF8 /* Competition.swift in Sources */,
+				0ADF016B20ABB0F9000CF133 /* PageViewController.swift in Sources */,
 				897A570020914E2B00628CEF /* LoginViewController.swift in Sources */,
 				891FE66220A415F100FC8027 /* AddCompetitionViewController.swift in Sources */,
 				897A57022091A42D00628CEF /* ProfileViewController.swift in Sources */,
