@@ -16,10 +16,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     var competitionRef: CollectionReference!
+    var matchRef: CollectionReference!
     var competition: Competition!
     var players = [Player]()
     var matches = [Match]()
     var numMatches = 0
+    var generated = false
     
     let matchCellIdentifier = "MatchCell"
     
@@ -54,6 +56,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 return
             }
             querySnapshot?.documentChanges.forEach({ (docChange) in
+                self.matchRef = docChange.document.reference.collection("matches")
                 self.competition = Competition(documentSnapshot: docChange.document)
                 self.titleLabel.text = self.competition.name
             })
@@ -76,7 +79,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 self.scheduleTable.reloadData()
                 if self.players.count == self.competition.numPlayers {
-                    self.generateMatches()
+                    if (!self.generated) {
+                        self.generateMatches()
+                    }
                 }
             }
         }
@@ -90,6 +95,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 self.matches.append(Match(playerOne: self.players[j + 1], playerTwo: self.players[i]))
             }
         }
+        self.matches.shuffle()
+        for i in 0..<self.matches.count {
+            matchRef.document("Match \(i + 1)").setData(["playerOne": self.matches[i].playerOne.name,
+                                                         "playerTwo": self.matches[i].playerTwo.name,
+                                                         "result": self.matches[i].result])
+        }
+        generated = true
         self.scheduleTable.reloadData()
     }
     
@@ -111,7 +123,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         if tableView == self.scheduleTable {
             cell = tableView.dequeueReusableCell(withIdentifier: matchCellIdentifier, for: indexPath)
             if (self.matches.count > i) {
-                cell!.textLabel!.text = "\(self.matches[i].playerOne.name!) (\(self.matches[i].playerOne.wins!) - \(self.matches[i].playerOne.losses!)) vs. \(self.matches[i].playerTwo.name!) (\(self.matches[i].playerTwo.wins!) - \(self.matches[i].playerTwo.losses!))"
+                if (self.matches[i].result == nil) {
+                    cell!.textLabel!.text = "\(self.matches[i].playerOne.name!) (\(self.matches[i].playerOne.wins!) - \(self.matches[i].playerOne.losses!)) vs. \(self.matches[i].playerTwo.name!) (\(self.matches[i].playerTwo.wins!) - \(self.matches[i].playerTwo.losses!))"
+                }
             }
         }
         return cell!
@@ -119,50 +133,68 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let match = matches[indexPath.row]
-        let result = showActionMenu(match)
         let cell = tableView.cellForRow(at: indexPath)
-        let winningPlayer: Player?
-        if result == 0 {
-            return
-        } else {
-            if result == 1 {
-                winningPlayer = match.playerOne
-            } else {
-                winningPlayer = match.playerTwo
-            }
-            
-            let name = NSMutableAttributedString(attributedString: NSAttributedString(string: (winningPlayer?.name)!))
-            let range = NSMakeRange(0, (winningPlayer?.name.count)!)
-            name.addAttribute(NSAttributedStringKey.font, value: UIFont(descriptor: UIFontDescriptor(name: "Helvetica-Bold", size: 17), size: 17), range: range)
-            cell?.textLabel?.attributedText = name
-        }
+        showActionMenu(match, cell!)
+        
         cell?.isSelected = false
+        self.scheduleTable.reloadData()
     }
     
-    func showActionMenu(_ match: Match) -> Int {
+    func showActionMenu(_ match: Match, _ cell: UITableViewCell) {
         let menu: UIAlertController = UIAlertController(title: "Who won?", message: nil, preferredStyle: .actionSheet)
-        var toReturn: Int = 0
+        var winningPlayer: Player?
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            toReturn = 0
+            return
         }
-        menu.addAction(cancelButton)
         
-        let player1WinsButton = UIAlertAction(title: "Player 1 Wins!", style: .default) { (action) in
+        let player1WinsButton = UIAlertAction(title: "\(match.playerOne.name!) Wins!", style: .default) { (action) in
             match.result = true
-            toReturn = 1
+            winningPlayer = match.playerOne
+            self.playerWins(match, winningPlayer!, cell)
         }
         menu.addAction(player1WinsButton)
         
-        let player2WinsButton = UIAlertAction(title: "Player 2 Wins!", style: .default) { (action) in
+        let player2WinsButton = UIAlertAction(title: "\(match.playerTwo.name!) Wins!", style: .default) { (action) in
             match.result = false
-            toReturn = 2
+            winningPlayer = match.playerTwo
+            self.playerWins(match, winningPlayer!, cell)
         }
         menu.addAction(player2WinsButton)
+        menu.addAction(cancelButton)
         
         self.present(menu, animated: true, completion: nil)
-        return toReturn
     }
     
+    func playerWins(_ match: Match, _ player: Player, _ cell: UITableViewCell) {
+        let playersRef: CollectionReference = self.competitionRef.document(self.competition.id!).collection("players")
+        let loser: Player!
+        if (player == match.playerOne) {
+            loser = match.playerTwo
+        } else {
+            loser = match.playerOne
+        }
+        for i in 0..<self.competition.numPlayers {
+            playersRef.document("Player \(i + 1)").getDocument { (document, error) in
+                if let document = document, document.exists {
+                    if document.data()!["name"] as? String == player.name {
+                        playersRef.document("Player \(i + 1)").setData(["wins": player.wins + 1], merge: true)
+                    }
+                    else if document.data()!["name"] as? String == loser?.name {
+                        playersRef.document("Player \(i + 1)").setData(["losses": player.losses + 1], merge: true)
+                    }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            if (player == match.playerOne) {
+                cell.textLabel?.text = "\(player.name!) (\(player.wins!) - \(player.losses!)) beat \(loser.name!) (\(loser.wins!) - \(loser.losses!))"
+            } else {
+                cell.textLabel?.text = "\(player.name!) (\(player.wins!) - \(player.losses!)) lost to \(loser.name!) (\(loser.wins!) - \(loser.losses!))"
+            }
+            self.scheduleTable.reloadData()
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+    }
 }
 
 extension Array {
