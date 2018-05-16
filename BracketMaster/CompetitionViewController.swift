@@ -90,7 +90,6 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
                 self.players.sort(by: { (p1, p2) -> Bool in
                     return p1.wins > p2.wins
                 })
-                print("\(self.players)")
                 self.rankTable.reloadData()
                 self.playerTable.reloadData()
                 self.winsTable.reloadData()
