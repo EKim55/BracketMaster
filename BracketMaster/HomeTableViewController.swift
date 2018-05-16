@@ -130,11 +130,10 @@ class HomeTableViewController: UITableViewController {
                 let textField = alertController.textFields![i]
                 newNames.append(textField.text!)
             }
-//            let compDocumentRef = self.competitionsRef.document(comp.id!)
-//            compDocumentRef.setData(comp.data)
             comp.playersCollectionRef?.getDocuments(completion: { (snapshot, error) in
                 let docs = snapshot?.documents
                 var i = 0
+                print("docs count: \(docs!.count)")
                 for doc in docs! {
                     let wins = doc.data()["wins"]
                     let losses = doc.data()["losses"]
