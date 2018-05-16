@@ -54,6 +54,7 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         loadCompetition()
+        getPlayers()
     }
     
     func loadCompetition() {
@@ -71,6 +72,18 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
             self.winsTable.reloadData()
             self.lossTable.reloadData()
         }
+    }
+    
+    func getPlayers() {
+        self.competition.playersCollectionRef?.addSnapshotListener({ (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching players. error: \(error!.localizedDescription)")
+                return
+            }
+            snapshot.documentChanges.forEach({ (docChange) in
+                <#code#>
+            })
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
