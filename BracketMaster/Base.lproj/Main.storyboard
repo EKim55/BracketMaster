@@ -76,6 +76,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QBs-Go-QGz" kind="show" id="tog-wW-Hh5"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoCompetitionsCell" textLabel="NgR-WP-IuD" style="IBUITableViewCellStyleDefault" id="CwP-Vo-EOz">
                                 <rect key="frame" x="0.0" y="116" width="414" height="44"/>
@@ -641,4 +644,7 @@
             <point key="canvasLocation" x="-230" y="893"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tog-wW-Hh5"/>
+    </inferredMetricsTieBreakers>
 </document>
