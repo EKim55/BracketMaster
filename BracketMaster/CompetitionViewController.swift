@@ -53,6 +53,10 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadCompetition()
+    }
+    
+    func loadCompetition() {
         let uidQuery = self.competitionRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).order(by: "created", descending: true).limit(to: 1)
         uidQuery.getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -62,22 +66,16 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
             querySnapshot?.documentChanges.forEach({ (docChange) in
                 self.competition = Competition(documentSnapshot: docChange.document)
             })
+            self.rankTable.reloadData()
+            self.playerTable.reloadData()
+            self.winsTable.reloadData()
+            self.lossTable.reloadData()
         }
     }
     
-//    func fillTables(_ document: DocumentSnapshot) {
-//        self.competition = Competition(documentSnapshot: document)
-//        self.titleLabel.text = self.competition.name
-//        for i in 0..<self.competition.numParticipants {
-//            let indexPath = IndexPath(row: i, section: 0)
-//            let cell = rankTable.cellForRow(at: indexPath)
-//            cell?.textLabel?.text = "\(i +a 1)"
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.competition == nil) {
-            return 10
+            return 8
         }
         return self.competition.numPlayers
     }
