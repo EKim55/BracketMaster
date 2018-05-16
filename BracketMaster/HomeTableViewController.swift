@@ -129,28 +129,12 @@ class HomeTableViewController: UITableViewController {
             for i in 0..<rows {
                 let textField = alertController.textFields![i]
                 newNames.append(textField.text!)
+                print(newNames[i])
             }
-            comp.playersCollectionRef?.getDocuments(completion: { (snapshot, error) in
-                let docs = snapshot?.documents
-                var i = 0
-                print("docs count: \(docs!.count)")
-                for doc in docs! {
-                    let wins = doc.data()["wins"]
-                    let losses = doc.data()["losses"]
-                    comp.playersCollectionRef?.document(doc.documentID).setData([
-                        "name" : newNames[i],
-                        "wins" : wins!,
-                        "losses" : losses!
-                        ], completion: { (error) in
-                        if let error = error {
-                            print("Error setting new names for players: \(error.localizedDescription)")
-                        } else {
-                            print("Successfully changed name for \(doc.documentID)")
-                        }
-                    })
-                    i += 1
-                }
-            })
+            let playersRef: CollectionReference = self.competitionsRef.document(comp.id!).collection("players")
+            for i in 0..<rows {
+                playersRef.document("Player \(i+1)").setData(["name" : newNames[i]], merge: true)
+            }
         }
         alertController.addAction(changeNamesAction)
         present(alertController, animated: true, completion: nil)

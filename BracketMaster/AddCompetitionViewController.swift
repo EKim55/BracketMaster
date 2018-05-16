@@ -49,7 +49,7 @@ class AddCompetitionViewController: UIViewController, UIPickerViewDelegate, UIPi
             players.append(player)
         }
         let newCompetition = Competition(isLeague: true, numberOfPlayers: numPlayers, competitionName: competitionName, userID: (Auth.auth().currentUser?.uid)!)
-        let docRef: DocumentReference = competitionRef.addDocument(data: newCompetition.data)  //adds new competition to Firebase
+        let docRef: DocumentReference = competitionRef.addDocument(data: newCompetition.data) //adds new competition to Firebase
         let playersRef: CollectionReference = docRef.collection("players")
         newCompetition.playersCollectionRef = playersRef
         
