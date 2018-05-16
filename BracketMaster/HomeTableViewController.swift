@@ -14,16 +14,28 @@ class HomeTableViewController: UITableViewController {
     var competitionsRef: CollectionReference!
         
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     let competitionCellIdentifier = "CompetitionCell"
     let noCompetitionsCellIdentifier = "NoCompetitionsCell"
     var competitions = [Competition]()
+    var canEdit = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Your Competitions"
         competitionsRef = Firestore.firestore().collection("competitions")
         print("addButton: \(addButton.isEnabled)")
+    }
+    
+    @IBAction func pressedEdit(_ sender: Any) {
+        if !canEdit {
+            canEdit = true
+            editButton.setTitle("Done Editing", for: .normal)
+        } else {
+            canEdit = false
+            editButton.setTitle("Edit", for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +103,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(true, animated: true)
+        super.setEditing(editing, animated: animated)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,7 +123,22 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comp = competitions[indexPath.row]
-        showEditDialog(comp)
+        if canEdit {
+            showEditDialog(comp)
+        } else {
+            tableView.cellForRow(at: indexPath)?.isSelected = false
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return competitions.count > 0
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let competitionToDelete = competitions[indexPath.row]
+            competitionsRef.document(competitionToDelete.id!).delete()
+        }
     }
     
     func showEditDialog(_ comp: Competition) {

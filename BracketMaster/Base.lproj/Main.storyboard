@@ -38,14 +38,25 @@
                                         </segue>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBf-km-Yp1">
+                                    <rect key="frame" x="19" y="5" width="32" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="pressedEdit:" destination="7fd-4G-mZQ" eventType="touchUpInside" id="Hoq-p9-n5x"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="F8N-6x-djK" secondAttribute="trailing" constant="19" id="3xu-1S-NGC"/>
+                                <constraint firstItem="qBf-km-Yp1" firstAttribute="centerY" secondItem="i7g-fg-FmC" secondAttribute="centerY" id="4FP-gM-WJO"/>
+                                <constraint firstItem="Hbb-fO-Kh1" firstAttribute="leading" secondItem="qBf-km-Yp1" secondAttribute="trailing" constant="129" id="9oW-fa-yrP"/>
                                 <constraint firstItem="F8N-6x-djK" firstAttribute="leading" secondItem="Hbb-fO-Kh1" secondAttribute="trailing" constant="127" id="F1z-Ip-JCK"/>
                                 <constraint firstItem="F8N-6x-djK" firstAttribute="centerY" secondItem="i7g-fg-FmC" secondAttribute="centerY" id="TPS-c8-DCO"/>
                                 <constraint firstItem="Hbb-fO-Kh1" firstAttribute="centerX" secondItem="i7g-fg-FmC" secondAttribute="centerX" id="cGJ-dF-juL"/>
                                 <constraint firstItem="Hbb-fO-Kh1" firstAttribute="centerY" secondItem="i7g-fg-FmC" secondAttribute="centerY" id="e9I-dK-Hwv"/>
+                                <constraint firstItem="qBf-km-Yp1" firstAttribute="leading" secondItem="i7g-fg-FmC" secondAttribute="leading" constant="19" id="pJd-at-9ue"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -65,6 +76,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QBs-Go-QGz" kind="show" id="tog-wW-Hh5"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoCompetitionsCell" textLabel="NgR-WP-IuD" style="IBUITableViewCellStyleDefault" id="CwP-Vo-EOz">
                                 <rect key="frame" x="0.0" y="116" width="414" height="44"/>
@@ -92,6 +106,7 @@
                     <tabBarItem key="tabBarItem" title="Home" id="bMb-a6-Bri"/>
                     <connections>
                         <outlet property="addButton" destination="F8N-6x-djK" id="CBk-Mr-75I"/>
+                        <outlet property="editButton" destination="qBf-km-Yp1" id="Xdq-K4-57j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Im-E0-6mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -629,4 +644,7 @@
             <point key="canvasLocation" x="-230" y="893"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tog-wW-Hh5"/>
+    </inferredMetricsTieBreakers>
 </document>
