@@ -39,7 +39,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBf-km-Yp1">
-                                    <rect key="frame" x="19" y="5" width="32" height="34"/>
+                                    <rect key="frame" x="19" y="5" width="60" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="get-DC-Tux"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <state key="normal" title="Edit"/>
                                     <connections>
@@ -51,7 +54,6 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="F8N-6x-djK" secondAttribute="trailing" constant="19" id="3xu-1S-NGC"/>
                                 <constraint firstItem="qBf-km-Yp1" firstAttribute="centerY" secondItem="i7g-fg-FmC" secondAttribute="centerY" id="4FP-gM-WJO"/>
-                                <constraint firstItem="Hbb-fO-Kh1" firstAttribute="leading" secondItem="qBf-km-Yp1" secondAttribute="trailing" constant="129" id="9oW-fa-yrP"/>
                                 <constraint firstItem="F8N-6x-djK" firstAttribute="leading" secondItem="Hbb-fO-Kh1" secondAttribute="trailing" constant="127" id="F1z-Ip-JCK"/>
                                 <constraint firstItem="F8N-6x-djK" firstAttribute="centerY" secondItem="i7g-fg-FmC" secondAttribute="centerY" id="TPS-c8-DCO"/>
                                 <constraint firstItem="Hbb-fO-Kh1" firstAttribute="centerX" secondItem="i7g-fg-FmC" secondAttribute="centerX" id="cGJ-dF-juL"/>
@@ -111,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Im-E0-6mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="139"/>
+            <point key="canvasLocation" x="1827.5362318840582" y="138.58695652173915"/>
         </scene>
         <!--Competition-->
         <scene sceneID="gyj-uQ-Wqe">
@@ -619,10 +621,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to BracketMaster" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKb-2b-Da6">
-                                <rect key="frame" x="96" y="99" width="223" height="86"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="223" id="gk1-FR-Lfy"/>
-                                </constraints>
+                                <rect key="frame" x="6.3333333333333428" y="99" width="402.33333333333326" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -650,6 +649,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LrD-Jc-xb4"/>
+        <segue reference="x9f-E8-6cI"/>
     </inferredMetricsTieBreakers>
 </document>

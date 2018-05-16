@@ -16,9 +16,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeLabel.sizeToFit()
         GIDSignIn.sharedInstance().uiDelegate = self
-        googleLoginButton.style = .wide
     }
 
 }

@@ -23,18 +23,19 @@ class HomeTableViewController: UITableViewController {
     let tabBarSegueIdentifier = "TabBarSegue"
     var competitions = [Competition]()
     var canEdit = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Your Competitions"
         competitionsRef = Firestore.firestore().collection("competitions")
-        print("addButton: \(addButton.isEnabled)")
+        //currentUser = (Auth.auth().currentUser?.uid)!
     }
     
     @IBAction func pressedEdit(_ sender: Any) {
         if !canEdit {
             canEdit = true
-            editButton.setTitle("Done Editing", for: .normal)
+            editButton.setTitle("Done", for: .normal)
         } else {
             canEdit = false
             editButton.setTitle("Edit", for: .normal)
@@ -42,14 +43,18 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("view will appear called")
         super.viewWillAppear(animated)
         competitions.removeAll()
         loadCompetitions()
+        tableView.reloadData()
     }
     
     func loadCompetitions() {
-        let uidQuery = self.competitionsRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any)
+        print("called loadCompetitions")
+        let uidQuery = self.competitionsRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid)
         competitions.removeAll()
+        
         uidQuery.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error fetching competitions for table: \(error.localizedDescription)")
@@ -80,15 +85,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     func competitionModified(_ document: DocumentSnapshot) {
-        let _ = Competition(documentSnapshot: document)
-        
-//        for comp in competitions {
-//            if comp.id == modifiedComp.id {
-//                comp.name = modifiedComp.name
-//                comp.players = modifiedComp.players     // cannot modify number of participants after creation
-//                break
-//            }
-//        }
+        //competitions can't be modified
     }
     
     func competitionRemoved(_ document: DocumentSnapshot) {
@@ -125,6 +122,10 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if competitions.count == 0 {
+            tableView.cellForRow(at: indexPath)?.isSelected = false
+            return
+        }
         let comp = competitions[indexPath.row]
         if canEdit {
             showEditDialog(comp)
@@ -144,6 +145,7 @@ class HomeTableViewController: UITableViewController {
         if editingStyle == .delete {
             let competitionToDelete = competitions[indexPath.row]
             competitionsRef.document(competitionToDelete.id!).delete()
+            self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         }
     }
     
