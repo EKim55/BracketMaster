@@ -92,14 +92,14 @@
 				897A57012091A42D00628CEF /* ProfileViewController.swift */,
 				0ADF016820A9649E000CF133 /* CompetitionViewController.swift */,
 				89E5A74A2091AD1D002BFF4E /* TabBarController.swift */,
+				0ADF016A20ABB0F9000CF133 /* PageViewController.swift */,
+				0ADF016C20ABE1DD000CF133 /* ScheduleViewController.swift */,
 				89582E452098BD58007EBEF8 /* Competition.swift */,
 				89D3458D20AAB638007B8B4D /* Player.swift */,
+				0ADF017020ABE785000CF133 /* Match.swift */,
 				0AFBD8582090F1B7009F1C93 /* Assets.xcassets */,
 				0AFBD85D2090F1B7009F1C93 /* Info.plist */,
 				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
-				0ADF016A20ABB0F9000CF133 /* PageViewController.swift */,
-				0ADF016C20ABE1DD000CF133 /* ScheduleViewController.swift */,
-				0ADF017020ABE785000CF133 /* Match.swift */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";

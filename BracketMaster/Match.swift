@@ -11,6 +11,7 @@ import UIKit
 class Match: NSObject {
     var playerOne: Player!
     var playerTwo: Player!
+    var result: Bool? //true if player 1 wins, false if player 2 wins
     
     init(playerOne: Player, playerTwo: Player) {
         self.playerOne = playerOne

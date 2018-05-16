@@ -106,6 +106,40 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let match = matches[indexPath.row]
+        let result = showActionMenu(match)
+        let cell = tableView.cellForRow(at: indexPath)
+        let winningPlayer: Player?
+        if match.result! {
+            winningPlayer = match.playerOne
+        } else {
+            winningPlayer = match.playerTwo
+        }
+        let name = NSMutableAttributedString(attributedString: NSAttributedString(string: (winningPlayer?.name)!))
+        let range = NSMakeRange(0, (winningPlayer?.name.count)!)
+        name.addAttribute(NSAttributedStringKey.font, value: UIFont(descriptor: UIFontDescriptor(name: "Helvetica-Bold", size: 17), size: 17), range: range)
+        cell?.textLabel?.attributedText = name
+    }
+    
+    func showActionMenu(_ match: Match) -> Bool {
+        let menu: UIAlertController = UIAlertController(title: "Who won?", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        menu.addAction(cancelButton)
+        
+        let player1WinsButton = UIAlertAction(title: "Player 1 Wins!", style: .default) { (action) in
+            match.result = true
+        }
+        menu.addAction(player1WinsButton)
+        
+        let player2WinsButton = UIAlertAction(title: "Player 2 Wins!", style: .default) { (action) in
+            match.result = false
+        }
+        self.present(menu, animated: true, completion: nil)
+        return match.result
+    }
+    
 }
 
 extension Array {
