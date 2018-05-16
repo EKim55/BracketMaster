@@ -165,9 +165,27 @@ class HomeTableViewController: UITableViewController {
                 newNames.append(textField.text!)
                 print(newNames[i])
             }
+            let matchRef = self.competitionsRef.document(comp.id!).collection("matches")
             let playersRef: CollectionReference = self.competitionsRef.document(comp.id!).collection("players")
             for i in 0..<rows {
-                playersRef.document("Player \(i+1)").setData(["name" : newNames[i]], merge: true)
+                var playerName: String?
+                playersRef.document("Player \(i + 1)").getDocument(completion: { (document, error) in
+                    if let document = document, document.exists {
+                        playerName = document.data()!["name"] as? String
+                        
+                        matchRef.whereField("playerOne", isEqualTo: playerName!).getDocuments(completion: { (query, error) in
+                            query?.documentChanges.forEach({ (docChange) in
+                                docChange.document.reference.setData(["playerOne": newNames[i]], merge: true)
+                            })
+                        })
+                        matchRef.whereField("playerTwo", isEqualTo: playerName!).getDocuments(completion: { (query, error) in
+                            query?.documentChanges.forEach({ (docChange) in
+                                docChange.document.reference.setData(["playerTwo": newNames[i]], merge: true)
+                            })
+                        })
+                        playersRef.document("Player \(i+1)").setData(["name" : newNames[i]], merge: true)
+                    }
+                })
             }
         }
         alertController.addAction(changeNamesAction)
