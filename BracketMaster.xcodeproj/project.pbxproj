@@ -10,6 +10,7 @@
 		0ADF016920A9649E000CF133 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF016820A9649E000CF133 /* CompetitionViewController.swift */; };
 		0ADF016B20ABB0F9000CF133 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF016A20ABB0F9000CF133 /* PageViewController.swift */; };
 		0ADF016D20ABE1DD000CF133 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF016C20ABE1DD000CF133 /* ScheduleViewController.swift */; };
+		0ADF017120ABE785000CF133 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF017020ABE785000CF133 /* Match.swift */; };
 		0AFBD84F2090F1B6009F1C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */; };
 		0AFBD8542090F1B6009F1C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8522090F1B6009F1C93 /* Main.storyboard */; };
 		0AFBD8592090F1B7009F1C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBD8582090F1B7009F1C93 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		0ADF016820A9649E000CF133 /* CompetitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		0ADF016A20ABB0F9000CF133 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		0ADF016C20ABE1DD000CF133 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		0ADF017020ABE785000CF133 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		0AFBD84B2090F1B6009F1C93 /* BracketMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BracketMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFBD84E2090F1B6009F1C93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AFBD8532090F1B6009F1C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				0AFBD863209145DA009F1C93 /* GoogleService-Info.plist */,
 				0ADF016A20ABB0F9000CF133 /* PageViewController.swift */,
 				0ADF016C20ABE1DD000CF133 /* ScheduleViewController.swift */,
+				0ADF017020ABE785000CF133 /* Match.swift */,
 			);
 			path = BracketMaster;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				89D3458E20AAB638007B8B4D /* Player.swift in Sources */,
 				0ADF016D20ABE1DD000CF133 /* ScheduleViewController.swift in Sources */,
 				0AFBD86620919A6D009F1C93 /* HomeTableViewController.swift in Sources */,
+				0ADF017120ABE785000CF133 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var competitionRef: CollectionReference!
     var competition: Competition!
     var players = [Player]()
+    var matches = [Match]()
+    var numMatches = 0
     
     let matchCellIdentifier = "MatchCell"
     
@@ -64,13 +66,18 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.competition == nil) {
-            return 0
+            return numMatches
         }
-        return self.competition.numPlayers
+        for i in 0..<self.competition.numPlayers {
+            numMatches = numMatches + i
+        }
+        numMatches = numMatches * 2
+        return numMatches
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        var cell: UITableViewCell?
+        return cell!
     }
     
 }
