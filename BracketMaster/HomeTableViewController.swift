@@ -18,6 +18,7 @@ class HomeTableViewController: UITableViewController {
     
     let competitionCellIdentifier = "CompetitionCell"
     let noCompetitionsCellIdentifier = "NoCompetitionsCell"
+    let tabBarSegueIdentifier = "TabBarSegue"
     var competitions = [Competition]()
     var canEdit = false
 
@@ -166,5 +167,9 @@ class HomeTableViewController: UITableViewController {
         }
         alertController.addAction(changeNamesAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
 }
