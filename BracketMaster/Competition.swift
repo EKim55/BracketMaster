@@ -57,10 +57,5 @@ class Competition: NSObject {
                 nameKey: self.name,
                 uidKey: self.uid]
     }
-    
-//    public func setNames(_ newNames: [String]) {
-//        for i in 0..<players!.count {
-//            players![i].name = newNames[i]
-//        }
-//    }
 }
+
