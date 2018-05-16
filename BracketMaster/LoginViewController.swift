@@ -12,10 +12,11 @@ import GoogleSignIn
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        welcomeLabel.sizeToFit()
         GIDSignIn.sharedInstance().uiDelegate = self
         googleLoginButton.style = .wide
     }

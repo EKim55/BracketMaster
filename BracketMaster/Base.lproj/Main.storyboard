@@ -611,12 +611,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bracket Master" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm5-QA-csv">
-                                <rect key="frame" x="149" y="112" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAe-Ps-ZBX" customClass="GIDSignInButton">
                                 <rect key="frame" x="149" y="363" width="116" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -624,24 +618,35 @@
                                     <constraint firstAttribute="height" constant="30" id="wGz-bB-0hV"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to BracketMaster" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKb-2b-Da6">
+                                <rect key="frame" x="96" y="99" width="223" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="gk1-FR-Lfy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Wm5-QA-csv" firstAttribute="top" secondItem="Ow3-D6-kf1" secondAttribute="top" constant="92" id="DxX-78-4Qf"/>
-                            <constraint firstItem="Wm5-QA-csv" firstAttribute="centerX" secondItem="Ow3-D6-kf1" secondAttribute="centerX" id="Hzq-DK-y2b"/>
-                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="width" secondItem="Wm5-QA-csv" secondAttribute="width" id="TEO-5L-at3"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="top" secondItem="FKb-2b-Da6" secondAttribute="bottom" constant="178" id="Gwo-nB-cHe"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="centerX" secondItem="FKb-2b-Da6" secondAttribute="centerX" id="gYW-RJ-F1I"/>
                             <constraint firstItem="gAe-Ps-ZBX" firstAttribute="centerY" secondItem="Ow3-D6-kf1" secondAttribute="centerY" id="gar-rl-KnC"/>
+                            <constraint firstItem="gAe-Ps-ZBX" firstAttribute="leading" secondItem="Ow3-D6-kf1" secondAttribute="leading" constant="149" id="h00-Fc-w2v"/>
                             <constraint firstItem="gAe-Ps-ZBX" firstAttribute="centerX" secondItem="Ow3-D6-kf1" secondAttribute="centerX" id="rFy-gY-SDW"/>
+                            <constraint firstItem="FKb-2b-Da6" firstAttribute="top" secondItem="Ow3-D6-kf1" secondAttribute="top" constant="79" id="vIx-3A-bHF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ow3-D6-kf1"/>
                     </view>
                     <connections>
                         <outlet property="googleLoginButton" destination="gAe-Ps-ZBX" id="kne-bS-7bf"/>
+                        <outlet property="welcomeLabel" destination="FKb-2b-Da6" id="UGb-jf-4fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bt8-qD-4hA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="893"/>
+            <point key="canvasLocation" x="-230.43478260869566" y="892.66304347826099"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
