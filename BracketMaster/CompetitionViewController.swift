@@ -19,6 +19,7 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     
     var competitionRef: CollectionReference!
     var competition: Competition!
+    var players = [Player]()
     
     let rankCellIdentifier = "RankCell"
     let playerCellIdentifier = "PlayerCell"
@@ -54,7 +55,6 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         loadCompetition()
-        getPlayers()
     }
     
     func loadCompetition() {
@@ -66,29 +66,42 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
             }
             querySnapshot?.documentChanges.forEach({ (docChange) in
                 self.competition = Competition(documentSnapshot: docChange.document)
+                self.titleLabel.text = self.competition.name
             })
             self.rankTable.reloadData()
             self.playerTable.reloadData()
             self.winsTable.reloadData()
             self.lossTable.reloadData()
+            self.getPlayers()
         }
     }
     
     func getPlayers() {
-        self.competition.playersCollectionRef?.addSnapshotListener({ (querySnapshot, error) in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching players. error: \(error!.localizedDescription)")
-                return
+        let playerRef = self.competitionRef.document(self.competition.id!).collection("players")
+        self.players.removeAll()
+        for i in 0..<self.competition.numPlayers {
+            playerRef.document("Player \(i + 1)").getDocument { (document, error) in
+                if let document = document, document.exists {
+                    self.players.append(Player(playerName: document.data()!["name"] as! String,
+                           numWins: document.data()!["wins"] as! Int, numLosses: document.data()!["losses"] as! Int))
+                } else {
+                    print("Document does not exist")
+                }
+                self.players.sort(by: { (p1, p2) -> Bool in
+                    return p1.wins > p2.wins
+                })
+                print("\(self.players)")
+                self.rankTable.reloadData()
+                self.playerTable.reloadData()
+                self.winsTable.reloadData()
+                self.lossTable.reloadData()
             }
-            snapshot.documentChanges.forEach({ (docChange) in
-                <#code#>
-            })
-        })
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.competition == nil) {
-            return 8
+            return 0
         }
         return self.competition.numPlayers
     }
@@ -102,16 +115,22 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
         }
         if tableView == self.playerTable {
             cell = tableView.dequeueReusableCell(withIdentifier: playerCellIdentifier, for: indexPath)
-            cell!.textLabel!.text = "0"
+            if (self.players.count > i) {
+                cell!.textLabel!.text = "\(self.players[i].name!)"
+            }
         }
         if tableView == self.winsTable {
             cell = tableView.dequeueReusableCell(withIdentifier: winsCellIdentifier, for: indexPath)
-            cell!.textLabel!.text = "1"
+            if (self.players.count > i) {
+                cell!.textLabel!.text = "\(self.players[i].wins!)"
+            }
         }
         
         if tableView == self.lossTable {
             cell = tableView.dequeueReusableCell(withIdentifier: lossCellIdentifier, for: indexPath)
-            cell!.textLabel!.text = "2"
+            if (self.players.count > i) {
+                cell!.textLabel!.text = "\(self.players[i].losses!)"
+            }
         }
         return cell!
     }
