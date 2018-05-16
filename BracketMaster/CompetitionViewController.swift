@@ -16,7 +16,6 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var playerTable: UITableView!
     @IBOutlet weak var winsTable: UITableView!
     @IBOutlet weak var lossTable: UITableView!
-    @IBOutlet weak var pageControl: UIPageControl!
     
     var competitionRef: CollectionReference!
     var competition: Competition!
@@ -28,12 +27,6 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pageControl.numberOfPages = 2
-        pageControl.currentPage = 0
-        pageControl.tintColor = UIColor.red
-        pageControl.pageIndicatorTintColor = UIColor.gray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
 
         competitionRef = Firestore.firestore().collection("competitions")
         rankTable.delegate = self
@@ -78,7 +71,7 @@ class CompetitionViewController: UIViewController, UITableViewDelegate, UITableV
 //        for i in 0..<self.competition.numParticipants {
 //            let indexPath = IndexPath(row: i, section: 0)
 //            let cell = rankTable.cellForRow(at: indexPath)
-//            cell?.textLabel?.text = "\(i + 1)"
+//            cell?.textLabel?.text = "\(i +a 1)"
 //        }
 //    }
     
