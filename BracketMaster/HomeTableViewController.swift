@@ -52,7 +52,7 @@ class HomeTableViewController: UITableViewController {
     
     func loadCompetitions() {
         print("called loadCompetitions")
-        let uidQuery = self.competitionsRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid)
+        let uidQuery = self.competitionsRef.whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any)
         competitions.removeAll()
         
         uidQuery.getDocuments { (querySnapshot, error) in
@@ -103,7 +103,11 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
+        if competitions.count == 0 {
+            super.setEditing(false, animated: animated)
+        } else {
+            super.setEditing(editing, animated: animated)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -145,7 +149,7 @@ class HomeTableViewController: UITableViewController {
         if editingStyle == .delete {
             let competitionToDelete = competitions[indexPath.row]
             competitionsRef.document(competitionToDelete.id!).delete()
-            self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+            loadCompetitions()
         }
     }
     

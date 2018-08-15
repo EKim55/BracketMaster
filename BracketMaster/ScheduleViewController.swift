@@ -254,7 +254,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 if let document = document, document.exists {
                     if document.data()!["playerOne"] as? String == match.playerOne.name {
                         if document.data()!["playerTwo"] as? String == match.playerTwo.name {
-                            self.matchRef.document("Match \(i + 1)").setData(["result": match.result], merge: true)
+                            self.matchRef.document("Match \(i + 1)").setData(["result": match.result!], merge: true)
                         }
                     }
                 } else {
